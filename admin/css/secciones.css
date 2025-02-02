@@ -1,0 +1,193 @@
+/* ========== CONTENEDOR PRINCIPAL DE CADA SECCIÓN ========== */
+.seccion-container {
+    max-width: 900px;
+    margin: 60px auto 20px auto; /* Centrado */
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* ✅ Ajustar el contenido para respetar el sidebar a la DERECHA */
+.seccion-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 40px;
+    padding-left: 40px;
+    margin-right: 300px; /* ✅ Espacio para el sidebar (ajustado) */
+}
+
+/* ========== TÍTULOS DE SECCIÓN ========== */
+.seccion-container h2 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* ========== MENSAJES DE CONFIRMACIÓN Y ERROR ========== */
+.message {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    display: inline-block;
+    width: 90%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.success {
+    background-color: #28a745;
+    color: white;
+    border-left: 6px solid #218838;
+}
+
+.error {
+    background-color: #dc3545;
+    color: white;
+    border-left: 6px solid #c82333;
+}
+
+/* ========== BOTÓN "CREAR NUEVO REGISTRO" ========== */
+.seccion-btn {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 15px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.seccion-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* ========== TABLA DE REGISTROS MEJORADA ========== */
+.seccion-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    table-layout: fixed;
+}
+
+/* ✅ ENCABEZADOS DE LA TABLA */
+.seccion-table thead {
+    background: #2c3e50;
+    color: white;
+}
+
+.seccion-table th {
+    padding: 14px;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #1a252f;
+    text-align: center;
+}
+
+/* ✅ CUERPO DE LA TABLA */
+.seccion-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ✅ ID en negrita y centrado */
+.id-columna {
+    font-weight: bold;
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* ✅ Alternar color de filas */
+.seccion-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* ✅ CORREGIDO: Alinear correctamente los botones de acción */
+.acciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* BOTONES DE ACCIÓN */
+.btn-edit,
+.btn-delete {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 90px; /* ✅ Solución: Todos los botones tendrán el mismo ancho */
+}
+
+/* Botón Editar */
+.btn-edit {
+    background-color: #ffc107;
+    color: #212529;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-edit:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+/* Botón Eliminar */
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* ✅ RESPONSIVE PARA MÓVILES */
+@media (max-width: 1024px) {
+    .seccion-page {
+        margin-right: 0;
+        padding-left: 20px;
+    }
+
+    .seccion-container {
+        width: 95%;
+        margin: 80px auto 20px auto;
+        padding: 20px;
+    }
+
+    .seccion-table {
+        font-size: 13px;
+    }
+
+    .seccion-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .acciones {
+        flex-direction: column;
+    }
+}

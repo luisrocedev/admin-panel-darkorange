@@ -1,0 +1,220 @@
+
+
+----------- HISTORIAL SERVIDOR luisrocedev.com --------------
+
+///////////////////// ACTUALIZAR /////////////////////
+
+
+- 18:31 sudo apt update && sudo apt upgrade -y
+
+
+///////////////////// INSTALAR SERVICIOS V.1 /////////////////////
+ 
+
+- 18:32 sudo apt install apache2 -y
+
+- 18:33 sudo apt install mysql-server -y
+  sudo mysql_secure_installation
+
+- 18:34 sudo apt install php libapache2-mod-php php-mysql -y
+
+- 18:34 sudo apt install git -y
+
+
+///////////////////// CREAR USUARIOS /////////////////////
+
+
+- 18:35 sudo adduser darkorange (crear usuario)
+  sudo usermod -aG www-data darkorange (dar al usuario permisos de administración)
+
+- 18:40 (entrar en root y dar a darkorange) sudo usermod -aG darkorange (por si no se aplican los permisos anteriores)
+  su - darkorange (cambiar a darkorange)
+  sudo ls (intentar ejecutar un comando con sudo)
+
+
+///////////////////// CONFIGURAR VIRTUALHOSTS PARA EL SUBDOMINIO /////////////////////
+
+
+- 18:43 sudo mkdir -p /var/www/darkorange (crear carpeta del proyecto)
+  sudo nano /etc/apache2/sites-available/darkorange.luisrocedev.es.conf (Crear el archivo de configuración del VirtualHost:)
+ 
+Agregar esta configuración 
+
+<VirtualHost *:80>
+    # Subdominio
+    ServerName darkorange.luisrocedev.es
+
+    # Carpeta raíz del proyecto
+    DocumentRoot /var/www/darkorange
+
+    # Configuración del directorio
+    <Directory /var/www/darkorange>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    # Logs de acceso y errores
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+///////////////////// HABILITAR NUESTRA WEB /////////////////////
+
+- 18:45 sudo a2ensite darkorange.luisrocedev.es.conf (habilitar sitio)
+  sudo systemctl reload apache2 (reiniciar apache)
+
+///////////////////// CONECTAR CON GITHUB (CLONAR Y PULL) ///////////////////// 
+
+- 18:47 cd /var/www/darkorange (ir a la carpeta del proyecto)
+- 18:48 sudo git clone https://github.com/luisrocedev/darkorange.git . (Clono mi repositorio)
+  sudo git pull (pull para actualizar)
+
+///////////////////// MANEJAR PERMISOS Y PROPIETARIOS ///////////////////// 
+
+- 18:55 sudo chown -R www-data:www-data /var/www/darkorange (cambiar propietario de la carpeta)
+  sudo chmod -R 755 /var/www/darkorange (ajustar permisos)
+
+///////////////////// VERIFICAR QUE EL VIRTUALHOSTS ESTE HABILITADO /////////////////////
+
+- 18:56 sudo apache2ctl -S 
+
+///////////////////// (POSIBLES INTERFERENCIAS) ///////////////////// 
+- 18:57 sudo a2dissite 000-default.conf (deshabilito el sitio predeterminado)
+  sudo systemctl reload apache2 (recargo apache)
+
+///////////////////// VERIFICAR LOS LOGS DE APACHE ///////////////////// 
+- (Para salir de los logs control + c)
+
+///////////////////// INSTALAR SERVICIOS V.2 /////////////////////
+
+- 19:05 sudo apt install phpmyadmin 
+
+Lunes 27 enero
+
+Creamos base de datos
+
+mysql> CREATE DATABASE taronjaboxvalencia;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> CREATE USER 'taronjaboxvalencia'@'localhost' IDENTIFIED BY 'taronjaboxvalencia';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT ALL PRIVILEGES ON taronjaboxvalencia.* TO 'taronjaboxvalencia'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| sys                |
+| taronjaboxvalencia |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> 
+mysql> SHOW GRANTS FOR 'taronjaboxvalencia'@'localhost';
++------------------------------------------------------------------------------------+
+| Grants for taronjaboxvalencia@localhost                                            |
++------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `taronjaboxvalencia`@`localhost`                             |
+| GRANT ALL PRIVILEGES ON `taronjaboxvalencia`.* TO `taronjaboxvalencia`@`localhost` |
++------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+
+
+EN CASO DE PHOPMYADMIN NO SE INSTALE CORRECTAMENTE 
+2. Verificar la Configuración de Apache
+Durante la instalación de phpMyAdmin, se debería haber creado un archivo de configuración en Apache. Verifica si existe:
+
+bash
+Copiar
+Editar
+ls /etc/apache2/conf-available/phpmyadmin.conf
+Si el archivo phpmyadmin.conf existe, habilítalo en Apache:
+
+bash
+Copiar
+Editar
+sudo a2enconf phpmyadmin
+sudo systemctl reload apache2
+Si no existe, puedes crearlo manualmente con el siguiente contenido:
+
+bash
+Copiar
+Editar
+sudo nano /etc/apache2/conf-available/phpmyadmin.conf
+Contenido del archivo:
+
+apache
+Copiar
+Editar
+Alias /phpmyadmin /usr/share/phpmyadmin
+
+<Directory /usr/share/phpmyadmin>
+    Options FollowSymLinks
+    DirectoryIndex index.php
+
+    <IfModule mod_php.c>
+        AddType application/x-httpd-php .php
+    </IfModule>
+
+    <FilesMatch ".+\.php$">
+        SetHandler application/x-httpd-php
+    </FilesMatch>
+
+    Require all granted
+</Directory>
+
+<Directory /usr/share/phpmyadmin/setup>
+    <IfModule mod_authz_core.c>
+        <RequireAny>
+            Require ip 127.0.0.1
+            Require ip ::1
+        </RequireAny>
+    </IfModule>
+</Directory>
+Guarda y cierra el archivo (Ctrl + O, luego Ctrl + X).
+
+Habilita la configuración y recarga Apache:
+
+bash
+Copiar
+Editar
+sudo a2enconf phpmyadmin
+sudo systemctl reload apache2
+
+
+----
+1 febrero 2025
+
+Sudo git pull proyecto final
+
+Nano hader.css
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

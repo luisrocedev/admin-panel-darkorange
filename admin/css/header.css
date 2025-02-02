@@ -1,0 +1,79 @@
+/* ========== SIDEBAR (Menú lateral) ========== */
+.sidebar {
+    width: 250px;
+    background: var(--color-primario);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Título del menú */
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: white !important;
+}
+
+/* Lista de opciones */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+/* Estilos de los enlaces del menú */
+.sidebar ul li a {
+    color: white !important;
+    text-decoration: none;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Íconos dentro del menú */
+.sidebar ul li a i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Efecto hover en los enlaces */
+.sidebar ul li a:hover {
+    background: var(--color-secundario);
+}
+
+/* ========== CONTENIDO PRINCIPAL AJUSTADO ========== */
+.main-content {
+    margin-right: 260px; /* Ajustar espacio para que no se solape con el menú */
+    padding: 20px;
+}
+
+/* ========== RESPONSIVE (Ocultar menú en móviles) ========== */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+    }
+
+    .main-content {
+        margin-right: 0;
+    }
+
+    .sidebar ul li a {
+        justify-content: center;
+    }
+}

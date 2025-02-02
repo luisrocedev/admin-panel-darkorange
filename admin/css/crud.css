@@ -1,0 +1,116 @@
+/* ========== RESET PARA EL CRUD ========== */
+.crud-page {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* ========== CONTENEDOR PRINCIPAL DEL CRUD ========== */
+.crud-container {
+    width: 90%;
+    max-width: 600px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Efecto al pasar el mouse */
+.crud-container:hover {
+    transform: scale(1.02);
+}
+
+/* ========== TÍTULOS DEL CRUD ========== */
+.crud-container h2 {
+    font-size: 26px;
+    color: var(--color-primario);
+    margin-bottom: 20px;
+}
+
+/* ========== FORMULARIO DEL CRUD ========== */
+.crud-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Inputs y Textareas */
+.crud-form input,
+.crud-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+}
+
+/* Efecto al enfocar los inputs */
+.crud-form input:focus,
+.crud-form textarea:focus {
+    border-color: var(--color-boton);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Botón de Enviar */
+.crud-form button {
+    background: var(--color-exito);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.crud-form button:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+/* ========== MENSAJES DE CONFIRMACIÓN Y ERROR ========== */
+.message {
+    padding: 14px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+}
+
+/* ========== RESPONSIVE PARA MÓVILES ========== */
+@media (max-width: 768px) {
+    .crud-container {
+        width: 95%;
+    }
+
+    .crud-form input,
+    .crud-form textarea,
+    .crud-form button {
+        font-size: 16px;
+    }
+}
