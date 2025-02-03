@@ -1,6 +1,8 @@
 <?php
 // Obtener la URL base correctamente
-$base_url = "http://localhost/GitHub/Primero-de-DAM-Luis-Rodriguez/darkorange";
+$base_url = "http://" . $_SERVER['HTTP_HOST'];
+
+
 
 
 // Determinar la ruta absoluta del archivo

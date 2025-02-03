@@ -5,7 +5,7 @@
  */
 
 // Parámetros de conexión
-$servername = "localhost";  // Servidor de la base de datos
+$servername = "82.165.43.137";  // Servidor de la base de datos
 $username = "taronjaboxvalencia";  // Usuario de la base de datos
 $password = "taronjaboxvalencia";  // Contraseña de la base de datos
 $dbname = "taronjaboxvalencia";  // Nombre de la base de datos
