@@ -1,6 +1,22 @@
 <?php
+
 session_start();
 include "../../admin/includes/header.php";
+
+/**
+ * Listar registros de una tabla en la base de datos.
+ * 
+ * Este script permite listar todos los registros de una tabla específica,
+ * proporcionando opciones para editar o eliminar cada registro.
+ * 
+ * Proceso:
+ * 1. Se inicia la sesión y se verifica la autenticación del usuario.
+ * 2. Se incluye la conexión a la base de datos.
+ * 3. Se validan los parámetros `tabla` y `seccion`.
+ * 4. Se obtiene la lista de registros de la tabla desde la base de datos.
+ * 5. Se genera una tabla con los registros, incluyendo enlaces para editar y eliminar.
+ */
+
 /**
  * Verificar si el usuario está autenticado.
  * Si no lo está, redirigir al login.
@@ -26,8 +42,9 @@ $tabla = $_GET['tabla'];       // Nombre de la tabla
 $seccion = $_GET['seccion'];   // Sección para redirigir
 
 // Obtener todos los registros de la tabla
-$peticion = $conexion->query("SELECT * FROM $tabla"); // Ejecutar la consulta
-$registros = $peticion->fetchAll(PDO::FETCH_ASSOC);  // Obtener los registros como array asociativo
+$peticion = $conexion->query("SELECT * FROM $tabla");  // Ejecutar la consulta
+$registros = $peticion->fetchAll(PDO::FETCH_ASSOC);    // Obtener los registros como array asociativo
+
 ?>
 
 <!DOCTYPE html>

@@ -1,8 +1,21 @@
 <?php
-$servername = "localhost";
-$username = "taronjaboxvalencia";
-$password = "taronjaboxvalencia";
-$database = "taronjaboxvalencia";
+
+/**
+ * Configuración de la conexión a la base de datos.
+ * 
+ * Este script establece una conexión con la base de datos MySQL y verifica si la conexión es exitosa.
+ * 
+ * Proceso:
+ * 1. Define los parámetros de conexión (servidor, usuario, contraseña, base de datos).
+ * 2. Crea una conexión con la base de datos utilizando `mysqli`.
+ * 3. Verifica si la conexión fue exitosa o muestra un mensaje de error.
+ * 4. (Prueba) Muestra un mensaje de confirmación si la conexión es correcta.
+ */
+
+$servername = "localhost";             // Servidor de la base de datos
+$username = "taronjaboxvalencia";      // Usuario de MySQL
+$password = "taronjaboxvalencia";      // Contraseña de MySQL
+$database = "taronjaboxvalencia";      // Nombre de la base de datos
 
 $conn = new mysqli($servername, $username, $password, $database);
 

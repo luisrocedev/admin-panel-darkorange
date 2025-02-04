@@ -3,7 +3,13 @@
 /**
  * Gestión del blog.
  * 
- * Muestra una interfaz para gestionar las entradas del blog, incluyendo la creación y visualización de entradas.
+ * Este script muestra una interfaz para administrar las entradas del blog, permitiendo su creación y visualización.
+ * 
+ * Proceso:
+ * 1. Se incluye la lógica centralizada del sistema.
+ * 2. Se carga la configuración específica para la sección del blog.
+ * 3. Se convierte la configuración en variables accesibles.
+ * 4. Se genera una interfaz con una lista de entradas y opción para crear nuevas.
  */
 
 // Incluir la lógica centralizada
@@ -12,6 +18,7 @@ include "../util/logica.php";
 // Cargar la lógica para la sección "blog"
 $config = cargarLogica("blog_posts", "blog");
 extract($config);  // Convertir el array en variables ($conexion, $tabla, $seccion, $message, $registros)
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,6 +32,7 @@ extract($config);  // Convertir el array en variables ($conexion, $tabla, $secci
 
 <body>
     <?php include "../includes/header.php"; ?> <!-- Incluir el encabezado -->
+
     <main>
         <h2>Gestión del Blog</h2>
 
@@ -34,7 +42,9 @@ extract($config);  // Convertir el array en variables ($conexion, $tabla, $secci
         <?php endif; ?>
 
         <!-- Enlace para crear una nueva entrada -->
-        <a href="../crud/create.php?tabla=<?= htmlspecialchars($tabla) ?>&seccion=<?= htmlspecialchars($seccion) ?>">Crear Nueva Entrada</a>
+        <a href="../crud/create.php?tabla=<?= htmlspecialchars($tabla) ?>&seccion=<?= htmlspecialchars($seccion) ?>">
+            Crear Nueva Entrada
+        </a>
         <br><br>
 
         <!-- Lista de entradas del blog -->
@@ -44,6 +54,7 @@ extract($config);  // Convertir el array en variables ($conexion, $tabla, $secci
         mostrarTablaDinamica($conexion, $tabla, $seccion);  // Mostrar la tabla de entradas
         ?>
     </main>
+
     <?php include "../includes/footer.php"; ?> <!-- Incluir el pie de página -->
 </body>
 

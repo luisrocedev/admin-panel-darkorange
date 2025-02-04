@@ -3,7 +3,13 @@
 /**
  * Gestión de mensajes de contacto.
  * 
- * Muestra una interfaz para gestionar los mensajes de contacto, incluyendo la visualización y eliminación de mensajes.
+ * Este script muestra una interfaz para administrar los mensajes de contacto, permitiendo su visualización y eliminación.
+ * 
+ * Proceso:
+ * 1. Se incluye la lógica centralizada del sistema.
+ * 2. Se carga la configuración específica para la sección de contacto.
+ * 3. Se convierte la configuración en variables accesibles.
+ * 4. Se genera una interfaz con una lista de mensajes y opción para eliminarlos.
  */
 
 // Incluir la lógica centralizada
@@ -12,6 +18,7 @@ include "../util/logica.php";
 // Cargar la lógica para la sección "contacto"
 $config = cargarLogica("contacto", "contacto");
 extract($config);  // Convertir el array en variables ($conexion, $tabla, $seccion, $message, $registros)
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
