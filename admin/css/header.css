@@ -1,5 +1,8 @@
-/* ========== SIDEBAR (Menú lateral) ========== */
-.sidebar {
+/* =======================================
+   SIDEBAR (MENÚ LATERAL)
+   ======================================= */
+
+   .sidebar {
     width: 250px;
     background: var(--color-primario);
     color: white;
@@ -14,7 +17,10 @@
     transition: transform 0.3s ease-in-out;
 }
 
-/* Título del menú */
+/* =======================================
+   TÍTULO DEL MENÚ
+   ======================================= */
+
 .sidebar h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -22,7 +28,10 @@
     color: white !important;
 }
 
-/* Lista de opciones */
+/* =======================================
+   LISTA DE OPCIONES
+   ======================================= */
+
 .sidebar ul {
     list-style: none;
     padding: 0;
@@ -32,7 +41,10 @@
     margin: 15px 0;
 }
 
-/* Estilos de los enlaces del menú */
+/* =======================================
+   ESTILOS DE LOS ENLACES DEL MENÚ
+   ======================================= */
+
 .sidebar ul li a {
     color: white !important;
     text-decoration: none;
@@ -54,13 +66,19 @@
     background: var(--color-secundario);
 }
 
-/* ========== CONTENIDO PRINCIPAL AJUSTADO ========== */
+/* =======================================
+   CONTENIDO PRINCIPAL AJUSTADO
+   ======================================= */
+
 .main-content {
     margin-right: 260px; /* Ajustar espacio para que no se solape con el menú */
     padding: 20px;
 }
 
-/* ========== RESPONSIVE (Ocultar menú en móviles) ========== */
+/* =======================================
+   RESPONSIVE (OCULTAR MENÚ EN MÓVILES)
+   ======================================= */
+
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;

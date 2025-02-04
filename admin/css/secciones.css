@@ -1,5 +1,8 @@
-/* ========== CONTENEDOR PRINCIPAL DE CADA SECCIÓN ========== */
-.seccion-container {
+/* =======================================
+   CONTENEDOR PRINCIPAL DE CADA SECCIÓN
+   ======================================= */
+
+   .seccion-container {
     max-width: 900px;
     margin: 60px auto 20px auto; /* Centrado */
     padding: 25px;
@@ -9,7 +12,10 @@
     text-align: center;
 }
 
-/* ✅ Ajustar el contenido para respetar el sidebar a la DERECHA */
+/* =======================================
+   AJUSTAR CONTENIDO PARA RESPETAR EL SIDEBAR A LA DERECHA
+   ======================================= */
+
 .seccion-page {
     display: flex;
     justify-content: center;
@@ -17,10 +23,13 @@
     min-height: 100vh;
     padding-top: 40px;
     padding-left: 40px;
-    margin-right: 300px; /* ✅ Espacio para el sidebar (ajustado) */
+    margin-right: 300px; /* ✅ Espacio para el sidebar */
 }
 
-/* ========== TÍTULOS DE SECCIÓN ========== */
+/* =======================================
+   TÍTULOS DE SECCIÓN
+   ======================================= */
+
 .seccion-container h2 {
     font-size: 28px;
     color: #2c3e50;
@@ -29,7 +38,10 @@
     text-transform: uppercase;
 }
 
-/* ========== MENSAJES DE CONFIRMACIÓN Y ERROR ========== */
+/* =======================================
+   MENSAJES DE CONFIRMACIÓN Y ERROR
+   ======================================= */
+
 .message {
     padding: 12px;
     font-size: 16px;
@@ -42,19 +54,24 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Mensajes de éxito */
 .success {
     background-color: #28a745;
     color: white;
     border-left: 6px solid #218838;
 }
 
+/* Mensajes de error */
 .error {
     background-color: #dc3545;
     color: white;
     border-left: 6px solid #c82333;
 }
 
-/* ========== BOTÓN "CREAR NUEVO REGISTRO" ========== */
+/* =======================================
+   BOTÓN "CREAR NUEVO REGISTRO"
+   ======================================= */
+
 .seccion-btn {
     display: inline-block;
     background: #007bff;
@@ -69,12 +86,16 @@
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Efecto hover en el botón */
 .seccion-btn:hover {
     background: #0056b3;
     transform: translateY(-2px);
 }
 
-/* ========== TABLA DE REGISTROS MEJORADA ========== */
+/* =======================================
+   TABLA DE REGISTROS MEJORADA
+   ======================================= */
+
 .seccion-table {
     width: 100%;
     border-collapse: collapse;
@@ -86,7 +107,7 @@
     table-layout: fixed;
 }
 
-/* ✅ ENCABEZADOS DE LA TABLA */
+/* ✅ Encabezados de la tabla */
 .seccion-table thead {
     background: #2c3e50;
     color: white;
@@ -100,7 +121,7 @@
     text-align: center;
 }
 
-/* ✅ CUERPO DE LA TABLA */
+/* ✅ Cuerpo de la tabla */
 .seccion-table td {
     padding: 12px;
     border-bottom: 1px solid #ddd;
@@ -120,7 +141,10 @@
     background-color: #f8f9fa;
 }
 
-/* ✅ CORREGIDO: Alinear correctamente los botones de acción */
+/* =======================================
+   BOTONES DE ACCIÓN
+   ======================================= */
+
 .acciones {
     display: flex;
     justify-content: center;
@@ -129,8 +153,21 @@
     flex-wrap: wrap;
 }
 
-/* BOTONES DE ACCIÓN */
-.btn-edit,
+/* ✅ Botón Editar */
+.btn-edit {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 90px;
+    background-color: #ffc107;
+    color: #212529;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* ✅ Botón Eliminar */
 .btn-delete {
     display: inline-block;
     padding: 8px 14px;
@@ -138,26 +175,16 @@
     font-size: 14px;
     font-weight: bold;
     text-align: center;
-    min-width: 90px; /* ✅ Solución: Todos los botones tendrán el mismo ancho */
-}
-
-/* Botón Editar */
-.btn-edit {
-    background-color: #ffc107;
-    color: #212529;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.btn-edit:hover {
-    background-color: #e0a800;
-    transform: scale(1.05);
-}
-
-/* Botón Eliminar */
-.btn-delete {
+    min-width: 90px;
     background-color: #dc3545;
     color: white;
     transition: background 0.3s, transform 0.2s;
+}
+
+/* ✅ Hover en los botones */
+.btn-edit:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
 }
 
 .btn-delete:hover {
@@ -165,7 +192,10 @@
     transform: scale(1.05);
 }
 
-/* ✅ RESPONSIVE PARA MÓVILES */
+/* =======================================
+   RESPONSIVE PARA MÓVILES
+   ======================================= */
+
 @media (max-width: 1024px) {
     .seccion-page {
         margin-right: 0;

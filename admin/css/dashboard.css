@@ -1,12 +1,19 @@
-/* ========== RESET GENERAL SOLO PARA DASHBOARD ========== */
-.dashboard-page {
+/* =======================================
+   RESET GENERAL SOLO PARA DASHBOARD
+   ======================================= */
+
+   .dashboard-page {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
-/* ========== AJUSTE DEL CONTENIDO PRINCIPAL (NO AFECTA EL CRUD) ========== */
+/* =======================================
+   AJUSTE DEL CONTENIDO PRINCIPAL
+   (NO AFECTA EL CRUD)
+   ======================================= */
+
 .dashboard-page .main-content {
     margin-right: 260px; /* Respeta el sidebar */
     padding: 40px;
@@ -14,7 +21,10 @@
     box-sizing: border-box;
 }
 
-/* ========== ESTILO DEL TÍTULO ========== */
+/* =======================================
+   ESTILO DEL TÍTULO
+   ======================================= */
+
 .dashboard-page .dashboard-title {
     font-size: 28px;
     color: #333;
@@ -22,14 +32,20 @@
     text-align: center;
 }
 
-/* ========== ESTILO DEL PÁRRAFO DE BIENVENIDA ========== */
+/* =======================================
+   ESTILO DEL PÁRRAFO DE BIENVENIDA
+   ======================================= */
+
 .dashboard-page .main-content p {
     font-size: 18px;
     color: #666;
     text-align: center;
 }
 
-/* ========== CONTENEDOR DEL DASHBOARD ========== */
+/* =======================================
+   CONTENEDOR DEL DASHBOARD
+   ======================================= */
+
 .dashboard-page .dashboard-container {
     background: white;
     padding: 20px;
@@ -40,12 +56,18 @@
     text-align: center;
 }
 
-/* ========== EFECTO DE HOVER EN EL CONTENEDOR ========== */
+/* =======================================
+   EFECTO DE HOVER EN EL CONTENEDOR
+   ======================================= */
+
 .dashboard-page .dashboard-container:hover {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ========== RESPONSIVE PARA MÓVILES ========== */
+/* =======================================
+   RESPONSIVE PARA MÓVILES
+   ======================================= */
+
 @media (max-width: 768px) {
     .dashboard-page .main-content {
         margin-right: 0;

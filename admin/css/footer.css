@@ -1,16 +1,22 @@
-/* Estilos generales del footer */
-footer {
-    background: #2c3e50; /* Color oscuro para contraste */
+/* =======================================
+   ESTILOS GENERALES DEL FOOTER
+   ======================================= */
+
+   footer {
+    background: #2c3e50;   /* Color oscuro para contraste */
     color: white;
     text-align: center;
     padding: 15px 0;
-    position: fixed; /* Fijar el footer en la parte inferior */
+    position: fixed;       /* Fijar el footer en la parte inferior */
     bottom: 0;
     width: 100%;
     font-size: 14px;
 }
 
-/* Ajuste para evitar superposición con contenido */
+/* =======================================
+   AJUSTE PARA EVITAR SUPERPOSICIÓN CON EL CONTENIDO
+   ======================================= */
+
 main {
     padding-bottom: 50px; /* Espacio para que el footer no cubra contenido */
 }

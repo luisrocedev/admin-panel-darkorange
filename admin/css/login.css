@@ -1,23 +1,32 @@
-/* Resetear márgenes y padding para evitar desplazamientos */
-* {
+/* =======================================
+   RESETEO GENERAL DE MÁRGENES Y PADDING
+   ======================================= */
+
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilos generales del login */
+/* =======================================
+   ESTILOS GENERALES DEL LOGIN
+   ======================================= */
+
 body {
     font-family: Arial, sans-serif;
-    background: #2c3e50; /* Color de fondo oscuro */
+    background: #2c3e50;   /* Color de fondo oscuro */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw; /* Asegura que ocupa todo el viewport */
+    width: 100vw;          /* Asegura que ocupa todo el viewport */
     margin: 0;
 }
 
-/* Contenedor del formulario de login */
+/* =======================================
+   CONTENEDOR DEL FORMULARIO DE LOGIN
+   ======================================= */
+
 .login-container {
     background: white;
     padding: 30px;
@@ -28,17 +37,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Asegura que el contenido interno esté centrado */
+    justify-content: center;  /* Asegura que el contenido interno esté centrado */
 }
 
-/* Estilo del título */
+/* =======================================
+   ESTILO DEL TÍTULO
+   ======================================= */
+
 .login-container h2 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
 }
 
-/* Campos de entrada */
+/* =======================================
+   CAMPOS DE ENTRADA
+   ======================================= */
+
 .login-container input {
     width: 100%;
     padding: 10px;
@@ -48,7 +63,10 @@ body {
     font-size: 16px;
 }
 
-/* Botón de inicio de sesión */
+/* =======================================
+   BOTÓN DE INICIO DE SESIÓN
+   ======================================= */
+
 .login-container button {
     width: 100%;
     background: #3498db;
@@ -61,18 +79,25 @@ body {
     transition: background 0.3s ease-in-out;
 }
 
+/* Efecto hover en el botón */
 .login-container button:hover {
     background: #6a0794;
 }
 
-/* Mensajes de error */
+/* =======================================
+   MENSAJES DE ERROR
+   ======================================= */
+
 .error-message {
     color: red;
     font-weight: bold;
     margin-top: 10px;
 }
 
-/* Asegurar que en pantallas pequeñas también esté bien centrado */
+/* =======================================
+   RESPONSIVE: AJUSTE PARA PANTALLAS PEQUEÑAS
+   ======================================= */
+
 @media (max-width: 480px) {
     .login-container {
         width: 90%;

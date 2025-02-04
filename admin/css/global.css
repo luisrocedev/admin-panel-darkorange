@@ -1,23 +1,32 @@
-/* ========== RESET GENERAL ========== */
-* {
+/* =======================================
+   RESET GENERAL
+   ======================================= */
+
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ========== PALETA DE COLORES (Variables CSS) ========== */
+/* =======================================
+   PALETA DE COLORES (Variables CSS)
+   ======================================= */
+
 :root {
-    --color-primario: #2c3e50;  /* Azul oscuro */
+    --color-primario: #2c3e50;   /* Azul oscuro */
     --color-secundario: #34495e; /* Azul más claro */
-    --color-fondo: #f4f4f4;  /* Gris claro */
-    --color-texto: #333;  /* Negro suave */
-    --color-exito: #28a745; /* Verde éxito */
-    --color-error: #dc3545; /* Rojo error */
-    --color-hover: #1d2d3c; /* Hover más oscuro */
-    --color-boton: #007bff; /* Azul botones */
+    --color-fondo: #f4f4f4;      /* Gris claro */
+    --color-texto: #333;         /* Negro suave */
+    --color-exito: #28a745;      /* Verde éxito */
+    --color-error: #dc3545;      /* Rojo error */
+    --color-hover: #1d2d3c;      /* Hover más oscuro */
+    --color-boton: #007bff;      /* Azul botones */
 }
 
-/* ========== ESTILOS GENERALES DEL BODY ========== */
+/* =======================================
+   ESTILOS GENERALES DEL BODY
+   ======================================= */
+
 body {
     font-family: Arial, sans-serif;
     background-color: var(--color-fondo);
@@ -25,7 +34,10 @@ body {
     line-height: 1.6;
 }
 
-/* ========== CONTENEDOR PRINCIPAL ========== */
+/* =======================================
+   CONTENEDOR PRINCIPAL
+   ======================================= */
+
 .main-content {
     margin-right: 260px; /* Para evitar que se solape con el sidebar */
     padding: 20px;
@@ -33,7 +45,10 @@ body {
     box-sizing: border-box;
 }
 
-/* ========== CONTENEDOR DEL DASHBOARD ========== */
+/* =======================================
+   CONTENEDOR DEL DASHBOARD
+   ======================================= */
+
 .dashboard-container {
     background: white;
     padding: 20px;
@@ -44,7 +59,10 @@ body {
     text-align: center;
 }
 
-/* ========== ESTILOS DEL TÍTULO DEL DASHBOARD ========== */
+/* =======================================
+   ESTILOS DEL TÍTULO DEL DASHBOARD
+   ======================================= */
+
 .dashboard-title {
     font-size: 28px;
     color: var(--color-primario);
@@ -52,14 +70,20 @@ body {
     text-align: center;
 }
 
-/* ========== ESTILO DEL TEXTO INFORMATIVO ========== */
+/* =======================================
+   ESTILO DEL TEXTO INFORMATIVO
+   ======================================= */
+
 .main-content p {
     font-size: 18px;
     color: #666;
     text-align: center;
 }
 
-/* ========== BOTONES GENERALES ========== */
+/* =======================================
+   BOTONES GENERALES
+   ======================================= */
+
 .btn {
     display: inline-block;
     padding: 10px 15px;
@@ -72,6 +96,7 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+/* Botón primario */
 .btn-primary {
     background-color: var(--color-boton);
     color: white;
@@ -81,6 +106,7 @@ body {
     background-color: #0056b3;
 }
 
+/* Botón de éxito */
 .btn-success {
     background-color: var(--color-exito);
     color: white;
@@ -90,6 +116,7 @@ body {
     background-color: #218838;
 }
 
+/* Botón de peligro */
 .btn-danger {
     background-color: var(--color-error);
     color: white;
@@ -99,7 +126,10 @@ body {
     background-color: #c82333;
 }
 
-/* ========== MENSAJES DE ÉXITO Y ERROR ========== */
+/* =======================================
+   MENSAJES DE ÉXITO Y ERROR
+   ======================================= */
+
 .message {
     padding: 12px;
     margin: 20px auto;
@@ -109,19 +139,24 @@ body {
     border-radius: 5px;
 }
 
+/* Mensajes de éxito */
 .success {
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
 }
 
+/* Mensajes de error */
 .error {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
 
-/* ========== RESPONSIVE ========== */
+/* =======================================
+   RESPONSIVE (MÓVILES)
+   ======================================= */
+
 @media (max-width: 768px) {
     .main-content {
         margin-right: 0;
