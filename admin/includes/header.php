@@ -1,11 +1,23 @@
 <?php
+
+/**
+ * Generación dinámica del menú de navegación (sidebar).
+ * 
+ * Este script obtiene las secciones del menú desde la base de datos y las muestra en la barra lateral.
+ * 
+ * Proceso:
+ * 1. Define la URL base dinámica.
+ * 2. Determina la ruta del archivo de conexión a la base de datos (`db_connect.php`).
+ * 3. Verifica la existencia del archivo antes de incluirlo.
+ * 4. Verifica si la variable `$conexion` está definida tras la inclusión.
+ * 5. Consulta la base de datos para obtener las secciones del menú.
+ * 6. Genera la estructura del menú con enlaces dinámicos.
+ */
+
 // Obtener la URL base correctamente
 $base_url = "http://" . $_SERVER['HTTP_HOST'];
 
-
-
-
-// Determinar la ruta absoluta del archivo
+// Determinar la ruta absoluta del archivo de conexión a la base de datos
 $basePath = __DIR__ . "/../config/db_connect.php";
 
 // Verificar si el archivo existe antes de incluirlo
@@ -23,6 +35,7 @@ if (!isset($conexion)) {
 // Obtener las secciones del menú desde la base de datos
 $sql = "SELECT * FROM admin_menu ORDER BY orden ASC";
 $result = $conexion->query($sql);
+
 ?>
 
 <head>
@@ -37,7 +50,7 @@ $result = $conexion->query($sql);
                 <li>
                     <a href="<?php echo $base_url . '/' . ltrim($row['enlace'], '/'); ?>">
                         <i class="fas fa-<?php echo $row['icono']; ?>"></i>
-                        <?php echo $row['titulo']; ?>
+                        <?php echo htmlspecialchars($row['titulo']); ?>
                     </a>
                 </li>
             <?php endwhile; ?>

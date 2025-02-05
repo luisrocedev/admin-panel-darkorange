@@ -2,8 +2,16 @@
 
 /**
  * Página de gestión de "Nuestro Equipo".
- * Incluye la lógica centralizada, muestra un formulario para crear nuevos registros
- * y una tabla dinámica con los registros existentes.
+ * 
+ * Este script permite la administración de los miembros del equipo. 
+ * Proporciona opciones para agregar nuevos registros y visualizar los existentes.
+ * 
+ * Proceso:
+ * 1. Se incluye la lógica centralizada del sistema.
+ * 2. Se carga la configuración específica para la sección "nuestro_equipo".
+ * 3. Se convierte la configuración en variables accesibles.
+ * 4. Se genera una interfaz con un botón para agregar registros y una tabla dinámica.
+ * 5. Se incluyen el header y el footer para mantener la estructura del sitio.
  */
 
 // Incluir la lógica centralizada
@@ -49,8 +57,8 @@ extract($config); // Convierte el array en variables ($conexion, $tabla, $seccio
             <!-- Lista de registros -->
             <h3>Lista de Registros</h3>
             <?php
-            include "../util/tabla_dinamica.php";
-            mostrarTablaDinamica($conexion, $tabla, $seccion);
+            include "../util/tabla_dinamica.php";  // Incluir la lógica de la tabla dinámica
+            mostrarTablaDinamica($conexion, $tabla, $seccion);  // Mostrar la tabla de registros
             ?>
         </div>
     </main>
