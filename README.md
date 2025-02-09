@@ -109,8 +109,8 @@ Si deseas ver la documentación completa del código, puedes hacerlo de dos mane
 1. **Repositorio del script de documentación**, donde se generan explicaciones automáticas mediante **docstrings en PHP**.  
 2. **Revisando el código fuente en el repositorio de DarkOrange**, donde cada función está comentada para facilitar su comprensión.  
 
-📌 **Repositorio del script:** [Enlace pendiente a GitHub]  
-📌 **Repositorio del código:** [https://github.com/luisrocedev/darkorange](https://github.com/luisrocedev/darkorange)  
+📌 **Repositorio del script:** [scriptdocumentacion](https://github.com/luisrocedev/scriptdocumentacion)  
+📌 **Repositorio del código:** [darkorange](https://github.com/luisrocedev/darkorange)  
 
 ---
 
