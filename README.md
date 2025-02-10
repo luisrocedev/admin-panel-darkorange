@@ -75,7 +75,8 @@ DarkOrange es el **panel de administración principal** de TaronjaBoxValencia y 
 
 Si deseas revisar el código fuente o contribuir al desarrollo:
 
-📌 **Repositorio del Proyecto:** [https://github.com/luisrocedev/darkorange](https://github.com/luisrocedev/darkorange)  
+📌 **Repositorio del Proyecto DarkOrange:** [https://github.com/luisrocedev/darkorange](https://github.com/luisrocedev/darkorange)  
+📌 **Repositorio del Proyecto Taronjaboxvalencia:** [[https://github.com/luisrocedev/taronjaboxvalencia](https://github.com/luisrocedev/taronjaboxvalencia)]
 
 ---
 
