@@ -47,42 +47,6 @@
     margin-bottom: 15px;
 }
 
-/* ======= ✅ MENSAJES DE ESTADO CENTRADOS ======= */
-.message {
-    padding: 18px;
-    margin: 20px auto;
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-    font-size: 1.2rem;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-    box-sizing: border-box;
-    left: 50%;
-    transform: translateX(-50%);
-    position: relative;
-}
-
-/* 🟢 Mensaje de Éxito */
-.success {
-    background: linear-gradient(135deg, var(--color-exito), #1e7e34);
-    color: #fff;
-    border-left: 6px solid #155724;
-}
-
-/* 🔴 Mensaje de Error */
-.error {
-    background: linear-gradient(135deg, var(--color-error), #a71d2a);
-    color: #fff;
-    border-left: 6px solid #721c24;
-}
-
-/* 🔔 Hover para interactividad */
-.message:hover {
-    transform: translateX(-50%) scale(1.05);
-}
-
 /* ======= ➕ BOTÓN "CREAR NUEVO REGISTRO" ======= */
 .seccion-btn {
     display: inline-block;
