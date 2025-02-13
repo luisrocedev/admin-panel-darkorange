@@ -1,4 +1,6 @@
-/* ======= ⚙️ SECCIONES CSS - DarkOrange Admin Panel ======= */
+/* =======================================
+   🌐 SECCIONES CSS - DarkOrange Admin Panel
+======================================= */
 
 /* ======= 🔄 RESET GLOBAL ======= */
 .seccion-page {
@@ -57,9 +59,9 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
     box-sizing: border-box;
-    position: relative;
     left: 50%;
     transform: translateX(-50%);
+    position: relative;
 }
 
 /* 🟢 Mensaje de Éxito */
@@ -80,6 +82,7 @@
 .message:hover {
     transform: translateX(-50%) scale(1.05);
 }
+
 /* ======= ➕ BOTÓN "CREAR NUEVO REGISTRO" ======= */
 .seccion-btn {
     display: inline-block;
@@ -222,47 +225,44 @@ textarea:focus {
         gap: 5px;
     }
 }
-/* ======= 🛠️ AJUSTES PARA "QUIÉNES SOMOS" ======= */
+
+/* ======= 🌟 AJUSTES ESPECÍFICOS POR SECCIÓN ======= */
+
+/* 👥 Quiénes Somos */
+#quienes_somos .seccion-container {
+    border-left: 5px solid var(--color-info);
+}
+
+/* 🛠️ Nuestro Equipo */
+#nuestro_equipo .seccion-container {
+    border-left: 5px solid var(--color-secundario);
+}
+
+/* 🩺 Fisioterapia */
+#fisioterapia .seccion-container {
+    border-left: 5px solid var(--color-exito);
+}
+
+/* 💳 Planes de Suscripción */
+#planes_suscripcion .seccion-container {
+    border-left: 5px solid var(--color-advertencia);
+}
+
+/* 📨 Contacto */
+#contacto .seccion-container {
+    border-left: 5px solid var(--color-error);
+}
+
+/* ======= 💬 ESTILO DE SUBTÍTULOS ======= */
 .seccion-subtitle {
     color: var(--color-secundario);
     margin-bottom: 20px;
     font-size: 1.5rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-/* ======= 🎯 AJUSTES ESPECÍFICOS PARA "NUESTRO EQUIPO" ======= */
-.seccion-subtitle {
-    color: var(--color-secundario);
-    margin-bottom: 20px;
-    font-size: 1.6rem;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
-}
-/* ======= 💆‍♀️ AJUSTES ESPECÍFICOS PARA FISIOTERAPIA ======= */
-.seccion-subtitle {
-    color: var(--color-secundario);
-    margin-bottom: 25px;
-    font-size: 1.6rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     border-bottom: 2px solid var(--color-primario);
     padding-bottom: 10px;
 }
-/* ======= 💳 AJUSTES PARA "PLANES DE SUSCRIPCIÓN" ======= */
-.seccion-subtitle {
-    color: var(--color-primario);
-    margin-bottom: 25px;
-    font-size: 1.6rem;
-    text-shadow: 2px 2px 5px rgba(255, 127, 80, 0.3);
-    border-bottom: 3px solid var(--color-secundario);
-    padding-bottom: 12px;
-}
-/* ======= 💬 AJUSTES PARA "CONTACTO" ======= */
-.seccion-subtitle {
-    color: var(--color-primario);
-    margin-bottom: 25px;
-    font-size: 1.6rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    border-bottom: 2px solid var(--color-secundario);
-    padding-bottom: 12px;
-}
+
 /* Botón de eliminar personalizado */
 .btn-delete {
     background: linear-gradient(135deg, var(--color-error), #a71d2a);
