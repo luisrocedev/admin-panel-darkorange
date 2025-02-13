@@ -1,9 +1,8 @@
-/* =======================================
-   RESET PARA EL CRUD
-   ======================================= */
+/* ======= ⚙️ CRUD CSS - DarkOrange Admin Panel ======= */
 
-   .crud-page {
-    font-family: Arial, sans-serif;
+/* ======= 🔄 RESET BASE ======= */
+.crud-page {
+    font-family: var(--font-family);
     background-color: var(--color-fondo);
     color: var(--color-texto);
     display: flex;
@@ -12,98 +11,123 @@
     min-height: 100vh;
 }
 
-/* =======================================
-   CONTENEDOR PRINCIPAL DEL CRUD
-   ======================================= */
-
+/* ======= 📦 CONTENEDOR PRINCIPAL ======= */
 .crud-container {
     width: 90%;
-    max-width: 600px;
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    max-width: 650px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
-    transition: transform 0.2s ease-in-out;
+    border-left: 6px solid var(--color-primario);
+    transition: transform 0.4s ease;
+    animation: fadeIn 1.2s ease;
 }
 
-/* Efecto al pasar el mouse */
+/* Hover dinámico */
 .crud-container:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
 }
 
-/* =======================================
-   TÍTULOS DEL CRUD
-   ======================================= */
-
+/* ======= 🖍️ TÍTULOS ======= */
 .crud-container h2 {
-    font-size: 26px;
+    font-size: 2rem;
     color: var(--color-primario);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(255, 127, 80, 0.4);
 }
 
-/* =======================================
-   FORMULARIO DEL CRUD
-   ======================================= */
-
+/* ======= 📝 FORMULARIO ======= */
 .crud-form {
     display: flex;
     flex-direction: column;
+    gap: 20px;
     align-items: center;
-    gap: 15px;
+    width: 100%;
 }
 
-/* Inputs y Textareas */
+/* Estilo de Inputs & Textareas */
 .crud-form input,
-.crud-form textarea {
+.crud-form textarea,
+.crud-form select {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.3s ease-in-out;
+    padding: 14px;
+    border: 2px solid var(--color-borde);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    background-color: #fff;
+    color: #333;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
     outline: none;
 }
 
-/* Efecto al enfocar los inputs */
+/* Efecto al enfocar */
 .crud-form input:focus,
-.crud-form textarea:focus {
-    border-color: var(--color-boton);
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+.crud-form textarea:focus,
+.crud-form select:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 10px rgba(255, 127, 80, 0.5);
 }
 
-/* Botón de Enviar */
+/* ======= 🔘 BOTÓN PRINCIPAL ======= */
 .crud-form button {
-    background: var(--color-exito);
-    color: white;
-    padding: 14px;
+    background: linear-gradient(135deg, var(--color-primario), var(--color-hover));
+    color: #fff;
+    padding: 14px 28px;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 1.1rem;
     font-weight: bold;
-    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Efecto al pasar el mouse sobre el botón */
+/* Efecto de brillo en el botón */
+.crud-form button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+}
+
+.crud-form button:hover::before {
+    left: 100%;
+}
+
 .crud-form button:hover {
-    background: #218838;
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 127, 80, 0.5);
 }
 
-/* =======================================
-   MENSAJES DE CONFIRMACIÓN Y ERROR
-   ======================================= */
-
+/* ======= ⚠️ MENSAJES DE CONFIRMACIÓN Y ERROR ======= */
 .message {
-    padding: 14px;
-    margin: 20px auto;
+    padding: 15px;
+    margin: 25px auto;
     width: 100%;
     max-width: 500px;
     text-align: center;
-    font-size: 16px;
+    border-radius: 10px;
+    font-size: 1rem;
     font-weight: bold;
-    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease;
+}
+
+.message:hover {
+    transform: scale(1.05);
 }
 
 /* Mensajes de éxito */
@@ -120,18 +144,68 @@
     border: 2px solid #f5c6cb;
 }
 
-/* =======================================
-   RESPONSIVE PARA MÓVILES
-   ======================================= */
+/* ======= 📊 TABLA CRUD ======= */
+.crud-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
 
+.crud-table th, .crud-table td {
+    padding: 12px 15px;
+    border: 1px solid var(--color-borde);
+    text-align: center;
+}
+
+.crud-table th {
+    background: var(--color-primario);
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.crud-table tbody tr:hover {
+    background-color: rgba(255, 127, 80, 0.2);
+    cursor: pointer;
+}
+
+/* ======= ⚙️ UTILIDADES ======= */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-primary {
+    color: var(--color-primario);
+}
+
+.text-error {
+    color: var(--color-error);
+}
+
+.text-success {
+    color: var(--color-exito);
+}
+
+/* ======= 🧱 RESPONSIVIDAD ======= */
 @media (max-width: 768px) {
     .crud-container {
-        width: 95%;
+        width: 100%;
+        padding: 20px;
     }
 
-    .crud-form input,
-    .crud-form textarea,
-    .crud-form button {
-        font-size: 16px;
+    .crud-table {
+        font-size: 0.9rem;
     }
+}
+
+/* ======= 🌟 ANIMACIONES ======= */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
