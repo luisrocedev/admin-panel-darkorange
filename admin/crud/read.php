@@ -92,10 +92,7 @@ $registros = $peticion->fetchAll(PDO::FETCH_ASSOC);    // Obtener los registros 
             </tbody>
         </table>
     </main>
-
-    <footer>
-        <p>&copy; 2025 TaronjaBox. Todos los derechos reservados.</p>
-    </footer>
+    <?php include "../../admin/includes/footer.php"; ?>
 </body>
 
 </html>

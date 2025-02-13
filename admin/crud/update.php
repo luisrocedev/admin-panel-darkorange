@@ -111,10 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			<button type="submit" class="btn-primary">Actualizar</button>
 		</form>
 	</div>
-
-	<footer>
-		<p>&copy; 2025 TaronjaBox. Todos los derechos reservados.</p>
-	</footer>
+	<?php include "../../admin/includes/footer.php"; ?>
 </body>
 
 </html>
