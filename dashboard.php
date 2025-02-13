@@ -31,7 +31,7 @@ include "admin/includes/footer.php";
     <!-- Contenido principal -->
     <main class="main-content">
         <div class="dashboard-container">
-            <h1 class="dashboard-title">👋 ¡Bienvenido, <?php echo $_SESSION['username']; ?>!</h1>
+            <h1 class="dashboard-title">👋 ¡Bienvenido, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
             <p class="dashboard-subtitle">Utiliza el menú lateral para gestionar el contenido del sitio.</p>
         </div>
     </main>

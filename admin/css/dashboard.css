@@ -1,69 +1,73 @@
-/* ======= ⚙️ DASHBOARD CSS - DarkOrange Admin Panel ======= */
+/* ========== DASHBOARD CSS ========== */
 
-/* ======= 🌐 ESTRUCTURA GENERAL ======= */
-.dashboard-page {
-    margin: 0;
-    padding: 0;
-    min-height: calc(100vh - 60px); /* Restamos el footer */
+/* 🛠️ Ajuste del contenedor principal */
+.main-content {
+    margin-left: 220px; /* Respetar el espacio del sidebar */
+    min-height: calc(100vh - 60px);
+    padding: 40px;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-    background-color: var(--color-fondo);
-    margin-left: 220px; /* Dejar espacio para el sidebar */
-    text-align: center;
+    background: var(--color-fondo);
 }
 
-/* ======= 🖼️ CONTENEDOR ======= */
+/* 📦 Estilo del dashboard */
 .dashboard-container {
-    background: #fff;
-    padding: 50px 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     max-width: 700px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    padding: 30px 25px;
     border-left: 6px solid var(--color-primario);
+    text-align: center;
     animation: fadeIn 1s ease;
+    transition: transform 0.3s ease;
 }
 
-/* ======= 📝 TEXTOS ======= */
+.dashboard-container:hover {
+    transform: translateY(-5px);
+}
+
+/* 🖍️ Títulos */
 .dashboard-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--color-primario);
     margin-bottom: 20px;
-    text-shadow: 2px 2px 6px rgba(255, 127, 80, 0.4);
-    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .dashboard-subtitle {
-    font-size: 1.5rem;
-    color: #555;
-    margin-top: 10px;
+    font-size: 1.4rem;
+    color: var(--color-secundario);
+    margin-bottom: 10px;
 }
 
-/* ======= 🌟 ANIMACIÓN ======= */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ======= 📱 RESPONSIVIDAD ======= */
+/* 🌐 Responsividad */
 @media (max-width: 768px) {
-    .dashboard-page {
+    .main-content {
         margin-left: 0;
-        padding-top: 100px;
+        padding: 20px;
     }
 
     .dashboard-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .dashboard-subtitle {
         font-size: 1.2rem;
+    }
+}
+
+/* ✨ Animación de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
