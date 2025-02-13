@@ -1,11 +1,11 @@
-/* ======= ESTILOS LOGIN MODERNO ======= */
+/* ======= ⚙️ ESTILOS LOGIN - DarkOrange Admin Panel ======= */
 
-/* ======= FONDO PRINCIPAL ======= */
+/* ======= 🌆 FONDO PRINCIPAL ======= */
 body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: linear-gradient(135deg, #3a3a3a, #1f1f1f);
+    background: linear-gradient(135deg, #2c2c2c, #1b1b1b);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,36 +13,37 @@ body {
     color: #fff;
 }
 
-/* ======= CONTENEDOR PRINCIPAL ======= */
+/* ======= 🏛️ CONTENEDOR PRINCIPAL ======= */
 .login-container {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     padding: 40px 30px;
     width: 100%;
     max-width: 400px;
     text-align: center;
     color: #fff;
     animation: fadeIn 1.5s ease;
-    border: 1px solid rgba(255, 127, 80, 0.5);
+    border: 1px solid rgba(255, 127, 80, 0.4);
 }
 
-/* ======= LOGO ENCIMA DEL LOGIN ======= */
+/* ======= 🔶 LOGO SUPERIOR ======= */
 .logo-container {
     margin-bottom: 25px;
     text-align: center;
 }
 
 .logo {
-    width: 120px;
+    width: 100px;
     height: auto;
     border-radius: 50%;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s ease;
     background-color: #fff;
-    padding: 10px;
+    padding: 8px;
     object-fit: cover;
+    border: 2px solid #ff7f50;
 }
 
 .logo:hover {
@@ -50,27 +51,22 @@ body {
     box-shadow: 0 6px 15px rgba(255, 127, 80, 0.7);
 }
 
-/* ======= TARJETA DE LOGIN ======= */
-.login-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+/* ======= 🛠️ TITULO DE LOGIN ======= */
 .login-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #ff7f50;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    letter-spacing: 1px;
-    border-bottom: 3px solid #ff7f50;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: var(--color-primario);
+    text-shadow: 2px 2px 4px rgba(255, 127, 80, 0.6);
+    border-bottom: 3px solid var(--color-primario);
     padding-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-/* ======= CAMPOS DE ENTRADA ======= */
+/* ======= 🔑 CAMPOS DE ENTRADA ======= */
 .login-container input {
     width: 100%;
-    padding: 15px;
+    padding: 14px;
     margin: 15px 0;
     border: none;
     border-radius: 10px;
@@ -84,12 +80,13 @@ body {
 
 .login-container input:focus {
     background: #fff;
-    box-shadow: 0 0 10px rgba(255, 127, 80, 0.6);
+    box-shadow: 0 0 10px rgba(255, 127, 80, 0.7);
+    border: 1px solid #ff7f50;
 }
 
-/* ======= BOTÓN DE INICIO DE SESIÓN ======= */
+/* ======= 🚀 BOTÓN DE INICIO DE SESIÓN ======= */
 .btn-login {
-    background: linear-gradient(135deg, #ff7f50, #e65b28);
+    background: linear-gradient(135deg, var(--color-primario), #e65b28);
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -98,33 +95,33 @@ body {
     font-size: 1.2rem;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
     text-transform: uppercase;
 }
 
 .btn-login:hover {
     transform: translateY(-5px);
-    box-shadow: 0 7px 15px rgba(255, 127, 80, 0.7);
+    box-shadow: 0 7px 15px rgba(255, 127, 80, 0.6);
     background: linear-gradient(135deg, #e65b28, #c94d1a);
 }
 
-/* ======= MENSAJES DE ERROR ======= */
+/* ======= ⚠️ MENSAJES DE ERROR ======= */
 .error-message {
     margin-top: 15px;
     color: #fff;
-    background-color: rgba(255, 0, 0, 0.7);
-    padding: 10px;
+    background-color: rgba(220, 53, 69, 0.75);
+    padding: 12px;
     border-radius: 5px;
     animation: shake 0.5s ease;
     border: 1px solid rgba(255, 255, 255, 0.2);
     text-align: center;
-    font-size: 0.95rem;
+    font-size: 1rem;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* ======= ANIMACIONES ======= */
+/* ======= 🎨 ANIMACIONES ======= */
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-50px); }
+    0% { opacity: 0; transform: translateY(-60px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
@@ -136,14 +133,14 @@ body {
     80% { transform: translateX(5px); }
 }
 
-/* ======= RESPONSIVIDAD ======= */
+/* ======= 📱 RESPONSIVIDAD ======= */
 @media (max-width: 480px) {
     .logo {
-        width: 90px;
+        width: 80px;
     }
 
     .login-title {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
     }
 
     .btn-login {
