@@ -17,14 +17,6 @@ $footer_css_path = $base_url . "/admin/css/footer.css";
 
 <footer class="admin-footer">
     <div class="footer-content">
-        <div class="footer-info">
-            <p>&copy; <?= date('Y') ?> TaronjaBox Valencia | Admin Panel</p>
-        </div>
-        <div class="footer-links">
-            <a href="#">Política de Privacidad</a>
-            <a href="#">Términos y Condiciones</a>
-            <a href="https://www.instagram.com/taronjaboxvalencia" target="_blank">Instagram</a>
-            <a href="mailto:info@taronjaboxvalencia.com">📧 Contacto</a>
-        </div>
+        <p>&copy; 2025 TaronjaBox. Todos los derechos reservados.</p>
     </div>
 </footer>

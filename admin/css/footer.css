@@ -1,101 +1,45 @@
-/* ======= 🖼️ FOOTER CSS - DarkOrange Admin Panel ======= */
+/* ========== FOOTER CSS ========== */
 
-/* ======= 🌐 ESTILO DEL FOOTER ======= */
+/* 📍 Posicionar el footer al final */
 .admin-footer {
-    background: linear-gradient(135deg, var(--color-primario), var(--color-hover));
-    color: #fff;
-    text-align: center;
-    padding: 20px;
     position: fixed;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    left: 220px; /* Ajuste para el sidebar */
+    width: calc(100% - 220px);
     height: 60px;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.4);
-    font-size: 0.95rem;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    animation: slideUp 1s ease;
-    border-top: 3px solid rgba(255, 255, 255, 0.3);
-}
-
-/* ======= 💬 CONTENIDO DEL FOOTER ======= */
-.footer-content {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0 30px;
-}
-
-.footer-info p {
-    margin: 0;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* ======= 🔗 ENLACES DEL FOOTER ======= */
-.footer-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-links a {
+    background: var(--color-primario);
     color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
-    padding-bottom: 2px;
-    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    border-top: 3px solid var(--color-hover);
+    z-index: 10;
+    transition: all 0.3s ease;
 }
 
-.footer-links a::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    transition: width 0.4s ease;
+/* 💡 Hover sutil */
+.admin-footer:hover {
+    background: var(--color-hover);
 }
 
-.footer-links a:hover::after {
-    width: 100%;
+/* 🖍️ Texto */
+.footer-content p {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.footer-links a:hover {
-    color: #ffe0c2;
-}
-
-/* ======= 🛠️ RESPONSIVIDAD ======= */
-@media (max-width: 600px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        padding: 10px;
+/* 📱 Responsividad */
+@media (max-width: 768px) {
+    .admin-footer {
+        left: 0;
+        width: 100%;
     }
 
-    .footer-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-/* ======= 🌟 ANIMACIÓN DE APARICIÓN ======= */
-@keyframes slideUp {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
+    .footer-content p {
+        font-size: 0.9rem;
     }
 }
