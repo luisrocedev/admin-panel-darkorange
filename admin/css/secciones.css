@@ -1,77 +1,51 @@
-/* =======================================
-   🌐 SECCIONES CSS - DarkOrange Panel
-======================================= */
+/* ======= ⚙️ SECCIONES CSS - DarkOrange Admin Panel ======= */
 
-/* ======= 🔄 RESET GENERAL ======= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-/* ======= 🌈 VARIABLES DE COLOR ======= */
-:root {
-    --color-primario: #ff7f50;    /* DarkOrange */
-    --color-secundario: #34495e;  /* Azul oscuro */
-    --color-fondo: #f5f6fa;       /* Gris claro */
-    --color-texto: #333;          /* Texto principal */
-    --color-hover: #e65b28;       /* Hover oscuro */
-    --color-boton: #ff7f50;       /* Botón principal */
-    --color-exito: #28a745;       /* Verde éxito */
-    --color-error: #dc3545;       /* Rojo error */
-    --color-info: #17a2b8;        /* Azul info */
-    --color-advertencia: #ffc107; /* Amarillo advertencia */
-    --color-borde: #ccc;          /* Bordes suaves */
-    --font-family: 'Poppins', sans-serif;
-}
-
-/* ======= 📱 BODY GENERAL ======= */
-body.seccion-page {
-    min-height: 100vh;
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    font-family: var(--font-family);
+/* ======= 🔄 RESET GLOBAL ======= */
+.seccion-page {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 40px;
-    margin-right: 260px;
+    min-height: calc(100vh - 60px); /* Restar altura del footer */
+    padding: 40px 20px;
+    margin-left: 220px; /* Respetar espacio del sidebar */
+    box-sizing: border-box;
+    background-color: var(--color-fondo);
 }
 
-/* ======= 🖼️ CONTENEDOR PRINCIPAL ======= */
+/* ======= 📦 CONTENEDOR PRINCIPAL ======= */
 .seccion-container {
     max-width: 900px;
-    width: 100%;
     margin: 60px auto 20px auto;
     padding: 30px;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
+    border-left: 6px solid var(--color-primario);
+    transition: transform 0.3s ease;
     animation: fadeIn 1s ease;
 }
 
-/* ======= 📝 TÍTULOS ======= */
+.seccion-container:hover {
+    transform: translateY(-5px);
+}
+
+/* ======= 🖍️ TITULOS Y TEXTOS ======= */
 .seccion-container h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: var(--color-primario);
     margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 3px rgba(255, 127, 80, 0.4);
 }
 
-.seccion-subtitle {
+.seccion-container h3 {
+    font-size: 1.5rem;
     color: var(--color-secundario);
-    margin-bottom: 25px;
-    font-size: 1.6rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    border-bottom: 2px solid var(--color-primario);
-    padding-bottom: 12px;
+    margin-bottom: 15px;
 }
 
-/* ======= 💬 MENSAJES DE ESTADO ======= */
+/* ======= ✅ MENSAJES DE ESTADO CENTRADOS ======= */
 .message {
     padding: 18px;
     margin: 20px auto;
@@ -88,199 +62,231 @@ body.seccion-page {
     transform: translateX(-50%);
 }
 
-.message.success {
+/* 🟢 Mensaje de Éxito */
+.success {
     background: linear-gradient(135deg, var(--color-exito), #1e7e34);
     color: #fff;
     border-left: 6px solid #155724;
 }
 
-.message.error {
+/* 🔴 Mensaje de Error */
+.error {
     background: linear-gradient(135deg, var(--color-error), #a71d2a);
     color: #fff;
     border-left: 6px solid #721c24;
 }
 
+/* 🔔 Hover para interactividad */
 .message:hover {
     transform: translateX(-50%) scale(1.05);
 }
-
-/* ======= 🖱️ BOTÓN DE ACCIÓN ======= */
+/* ======= ➕ BOTÓN "CREAR NUEVO REGISTRO" ======= */
 .seccion-btn {
     display: inline-block;
-    background: linear-gradient(135deg, var(--color-boton), var(--color-hover));
-    color: #fff;
-    padding: 14px 20px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
-    font-size: 1.1rem;
-    text-decoration: none;
+    font-size: 1rem;
     font-weight: bold;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.4s, box-shadow 0.4s;
-    margin: 20px 0;
     text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, var(--color-boton), var(--color-hover));
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .seccion-btn:hover {
-    transform: scale(1.07);
-    box-shadow: 0 8px 16px rgba(255, 127, 80, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(255, 127, 80, 0.6);
 }
 
-/* ======= 📊 TABLAS ======= */
+/* ======= 🗂️ TABLA DE REGISTROS ======= */
 .seccion-table {
     width: 100%;
     border-collapse: collapse;
-    background: #fff;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
+    margin-top: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
+    background-color: #fff;
     text-align: center;
 }
 
 .seccion-table thead {
-    background-color: var(--color-primario);
+    background: var(--color-primario);
     color: #fff;
 }
 
 .seccion-table th, .seccion-table td {
-    padding: 14px 18px;
-    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    border: 1px solid var(--color-borde);
+    text-align: center;
     font-size: 1rem;
-    word-break: break-word;
-}
-
-.seccion-table tbody tr:nth-child(even) {
-    background-color: #f3f4f6;
 }
 
 .seccion-table tbody tr:hover {
-    background-color: rgba(255, 127, 80, 0.2);
+    background-color: rgba(255, 127, 80, 0.1);
     cursor: pointer;
 }
 
-/* ======= 🔨 BOTONES DE ACCIÓN EN TABLA ======= */
+/* ======= ⚙️ BOTONES DE ACCIÓN ======= */
 .acciones {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-edit,
+.btn-delete {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .btn-edit {
-    padding: 10px 15px;
-    background: linear-gradient(135deg, #ffc107, #e0a800);
-    color: #333;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.3s;
-}
-
-.btn-edit:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.4);
+    background: linear-gradient(135deg, #ffc107, #d39e00);
+    color: #212529;
 }
 
 .btn-delete {
-    padding: 10px 15px;
     background: linear-gradient(135deg, var(--color-error), #a71d2a);
-    color: #fff;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.3s;
 }
 
+.btn-edit:hover,
 .btn-delete:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* ======= 🔍 SECCIONES ESPECÍFICAS ======= */
-
-/* 👥 Quienes Somos */
-#quienes_somos .seccion-container {
-    border-left: 6px solid var(--color-info);
+/* ======= 🧩 AJUSTES DE FORMULARIO ======= */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 2px solid var(--color-borde);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: var(--color-texto);
+    background: #fff;
 }
 
-/* 🛠️ Nuestro Equipo */
-#nuestro_equipo .seccion-container {
-    border-left: 6px solid var(--color-secundario);
+input:focus,
+textarea:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 10px rgba(255, 127, 80, 0.5);
 }
 
-/* 🩺 Fisioterapia */
-#fisioterapia .seccion-container {
-    border-left: 6px solid var(--color-exito);
-}
-
-/* 💳 Planes de Suscripción */
-#planes_suscripcion .seccion-container {
-    border-left: 6px solid var(--color-advertencia);
-}
-
-/* 📨 Contacto */
-#contacto .seccion-container {
-    border-left: 6px solid var(--color-error);
-}
-
-/* ======= ❌ MENSAJE DE NO REGISTROS ======= */
+/* ======= 🛑 SIN REGISTROS ======= */
 .no-registros {
-    font-size: 1.2rem;
+    margin-top: 20px;
     color: var(--color-secundario);
-    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
     text-align: center;
 }
 
-/* ======= ⚙️ ANIMACIONES ======= */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ======= 📱 RESPONSIVE DESIGN ======= */
+/* ======= 📱 RESPONSIVIDAD ======= */
 @media (max-width: 768px) {
-    body.seccion-page {
-        margin-right: 0;
-        padding-left: 20px;
+    .seccion-page {
+        margin-left: 0;
+        padding-top: 80px;
     }
 
     .seccion-container {
         width: 95%;
-        margin: 80px auto 20px auto;
-        padding: 20px;
+        margin-top: 20px;
     }
 
     .seccion-table {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 
     .seccion-btn {
         width: 100%;
-        text-align: center;
     }
 
     .acciones {
         flex-direction: column;
-        gap: 8px;
+        gap: 5px;
     }
 }
+/* ======= 🛠️ AJUSTES PARA "QUIÉNES SOMOS" ======= */
+.seccion-subtitle {
+    color: var(--color-secundario);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+/* ======= 🎯 AJUSTES ESPECÍFICOS PARA "NUESTRO EQUIPO" ======= */
+.seccion-subtitle {
+    color: var(--color-secundario);
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+}
+/* ======= 💆‍♀️ AJUSTES ESPECÍFICOS PARA FISIOTERAPIA ======= */
+.seccion-subtitle {
+    color: var(--color-secundario);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--color-primario);
+    padding-bottom: 10px;
+}
+/* ======= 💳 AJUSTES PARA "PLANES DE SUSCRIPCIÓN" ======= */
+.seccion-subtitle {
+    color: var(--color-primario);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    text-shadow: 2px 2px 5px rgba(255, 127, 80, 0.3);
+    border-bottom: 3px solid var(--color-secundario);
+    padding-bottom: 12px;
+}
+/* ======= 💬 AJUSTES PARA "CONTACTO" ======= */
+.seccion-subtitle {
+    color: var(--color-primario);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 12px;
+}
+/* Botón de eliminar personalizado */
+.btn-delete {
+    background: linear-gradient(135deg, var(--color-error), #a71d2a);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
 
-@media (max-width: 480px) {
-    .seccion-container h2 {
-        font-size: 2rem;
+.btn-delete:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 12px rgba(255, 0, 0, 0.5);
+}
+
+/* ======= 🌟 ANIMACIONES ======= */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
     }
-
-    .seccion-subtitle {
-        font-size: 1.3rem;
-    }
-
-    .seccion-btn {
-        font-size: 1rem;
-        padding: 10px 15px;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
