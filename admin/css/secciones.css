@@ -239,6 +239,15 @@ textarea:focus {
     border-bottom: 2px solid var(--color-primario);
     padding-bottom: 10px;
 }
+/* ======= 💳 AJUSTES PARA "PLANES DE SUSCRIPCIÓN" ======= */
+.seccion-subtitle {
+    color: var(--color-primario);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    text-shadow: 2px 2px 5px rgba(255, 127, 80, 0.3);
+    border-bottom: 3px solid var(--color-secundario);
+    padding-bottom: 12px;
+}
 
 
 /* ======= 🌟 ANIMACIONES ======= */
