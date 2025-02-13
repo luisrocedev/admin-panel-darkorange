@@ -41,11 +41,10 @@ body {
 
 /* ======= 🖼️ ESTRUCTURA GENERAL ======= */
 .main-content {
-    margin-left: 220px; /* espacio para el sidebar */
-    min-height: calc(100vh - 60px);
+    margin-left: 220px;
     padding: 30px;
     box-sizing: border-box;
-    transition: margin-left 0.4s ease;
+    min-height: 100vh;
 }
 
 /* ======= 📝 TEXTOS ======= */

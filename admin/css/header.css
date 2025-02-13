@@ -1,16 +1,15 @@
 /* ======= ⚙️ SIDEBAR DINÁMICO ======= */
 .sidebar {
     width: 220px;
-    position: sticky;
+    height: 100%;
+    position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
     background: linear-gradient(135deg, var(--color-primario), var(--color-hover));
     color: #fff;
     padding: 30px 20px;
     box-shadow: 6px 0 15px rgba(0, 0, 0, 0.4);
     z-index: 1000;
-    transition: width 0.4s ease;
     overflow-y: auto;
 }
 

@@ -1,20 +1,12 @@
 /* ========== 🌐 FOOTER CSS - Panel de Administración ========== */
 
 .admin-footer {
-    position: fixed;
-    bottom: 0;
-    left: 220px; /* Ajuste por el sidebar */
-    width: calc(100% - 220px);
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    text-align: center;
+    padding: 15px 0;
+    background-color: var(--color-fondo);
     color: var(--color-texto);
-    font-size: 1rem;
-    border-top: 1px solid #ccc;
-    background-color: #fff;
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+    border-top: 1px solid var(--color-borde);
 }
 
 /* 📱 Responsividad */
