@@ -102,10 +102,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn-primary">Crear</button>
         </form>
     </div>
+    <?php include "../../admin/includes/footer.php"; ?>
 
-    <footer>
-        <p>&copy; 2025 TaronjaBox. Todos los derechos reservados.</p>
-    </footer>
 </body>
 
 </html>
