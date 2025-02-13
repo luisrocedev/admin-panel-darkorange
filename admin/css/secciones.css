@@ -230,6 +230,15 @@ textarea:focus {
     font-size: 1.6rem;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
 }
+/* ======= 💆‍♀️ AJUSTES ESPECÍFICOS PARA FISIOTERAPIA ======= */
+.seccion-subtitle {
+    color: var(--color-secundario);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--color-primario);
+    padding-bottom: 10px;
+}
 
 
 /* ======= 🌟 ANIMACIONES ======= */
