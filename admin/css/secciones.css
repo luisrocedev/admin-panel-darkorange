@@ -257,6 +257,21 @@ textarea:focus {
     border-bottom: 2px solid var(--color-secundario);
     padding-bottom: 12px;
 }
+/* Botón de eliminar personalizado */
+.btn-delete {
+    background: linear-gradient(135deg, var(--color-error), #a71d2a);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+
+.btn-delete:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 12px rgba(255, 0, 0, 0.5);
+}
 
 /* ======= 🌟 ANIMACIONES ======= */
 @keyframes fadeIn {
