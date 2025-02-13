@@ -3,21 +3,16 @@
 /**
  * Generación dinámica del menú de navegación (sidebar).
  * 
- * Este script obtiene las secciones del menú desde la base de datos y las muestra en la barra lateral.
- * 
  * Proceso:
- * 1. Define la URL base dinámica.
- * 2. Determina la ruta del archivo de conexión a la base de datos (`db_connect.php`).
- * 3. Verifica la existencia del archivo antes de incluirlo.
- * 4. Verifica si la variable `$conexion` está definida tras la inclusión.
- * 5. Consulta la base de datos para obtener las secciones del menú.
- * 6. Genera la estructura del menú con enlaces dinámicos.
+ * 1. Incluye la conexión a la base de datos.
+ * 2. Consulta las secciones del menú desde la tabla `admin_menu`.
+ * 3. Genera el menú lateral de forma dinámica.
  */
 
 // Obtener la URL base correctamente
 $base_url = "http://" . $_SERVER['HTTP_HOST'];
 
-// Determinar la ruta absoluta del archivo de conexión a la base de datos
+// Determinar la ruta del archivo de conexión
 $basePath = __DIR__ . "/../config/db_connect.php";
 
 // Verificar si el archivo existe antes de incluirlo
@@ -27,33 +22,39 @@ if (file_exists($basePath)) {
     die("Error: No se pudo encontrar el archivo de conexión.");
 }
 
-// Verificar si la variable $conexion está definida
+// Verificar si la conexión está disponible
 if (!isset($conexion)) {
     die("Error: La conexión a la base de datos no está disponible.");
 }
 
-// Obtener las secciones del menú desde la base de datos
+// Obtener las secciones del menú
 $sql = "SELECT * FROM admin_menu ORDER BY orden ASC";
 $result = $conexion->query($sql);
 
 ?>
 
 <head>
-    <link rel="stylesheet" href="<?php echo $base_url; ?>/admin/css/header.css"> <!-- Incluir el archivo header.css -->
+    <!-- Estilos del menú lateral -->
+    <link rel="stylesheet" href="<?php echo $base_url; ?>/admin/css/header.css?v=<?php echo time(); ?>">
 </head>
 
-<header>
-    <nav class="sidebar">
-        <h2>Menú</h2>
+<!-- ========== MENÚ LATERAL ========== -->
+<aside class="sidebar">
+    <div class="logo">
+        <img src="<?php echo $base_url; ?>/admin/img/logo.png" alt="TaronjaBox Admin">
+        <h3>TaronjaBox Admin</h3>
+    </div>
+
+    <nav class="menu">
         <ul>
             <?php while ($row = $result->fetch_assoc()): ?>
                 <li>
                     <a href="<?php echo $base_url . '/' . ltrim($row['enlace'], '/'); ?>">
-                        <i class="fas fa-<?php echo $row['icono']; ?>"></i>
-                        <?php echo htmlspecialchars($row['titulo']); ?>
+                        <i class="fas fa-<?php echo htmlspecialchars($row['icono']); ?>"></i>
+                        <span><?php echo htmlspecialchars($row['titulo']); ?></span>
                     </a>
                 </li>
             <?php endwhile; ?>
         </ul>
     </nav>
-</header>
+</aside>
