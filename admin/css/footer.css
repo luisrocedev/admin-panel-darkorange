@@ -1,35 +1,27 @@
-/* ========== FOOTER CSS ========== */
+/* ========== 🌐 FOOTER CSS - Panel de Administración ========== */
 
-/* 📍 Posicionar el footer al final */
 .admin-footer {
     position: fixed;
     bottom: 0;
-    left: 220px; /* Ajuste para el sidebar */
+    left: 220px; /* Ajuste por el sidebar */
     width: calc(100% - 220px);
     height: 60px;
-    background: var(--color-primario);
+    background: var(--color-secundario);
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-    border-top: 3px solid var(--color-hover);
-    z-index: 10;
-    transition: all 0.3s ease;
-}
-
-/* 💡 Hover sutil */
-.admin-footer:hover {
-    background: var(--color-hover);
-}
-
-/* 🖍️ Texto */
-.footer-content p {
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3);
+    border-top: 4px solid var(--color-primario);
     font-size: 1rem;
-    text-align: center;
-    margin: 0;
     text-transform: uppercase;
     letter-spacing: 1px;
+    z-index: 100;
+    transition: background 0.3s ease;
+}
+
+.admin-footer:hover {
+    background: var(--color-hover);
 }
 
 /* 📱 Responsividad */
@@ -37,9 +29,5 @@
     .admin-footer {
         left: 0;
         width: 100%;
-    }
-
-    .footer-content p {
-        font-size: 0.9rem;
     }
 }
