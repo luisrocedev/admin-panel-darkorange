@@ -1,169 +1,130 @@
-/* ======= ⚙️ CRUD CSS - DarkOrange Admin Panel ======= */
+/* ========================================
+   🛠️ CRUD.CSS - ESTILOS GENERALES DEL CRUD
+   ======================================== */
 
-/* ======= 🔄 RESET BASE ======= */
+/* 🔄 RESET */
 .crud-page {
-    font-family: var(--font-family);
+    font-family: 'Poppins', sans-serif;
     background-color: var(--color-fondo);
     color: var(--color-texto);
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    padding: 40px 20px;
 }
 
-/* ======= 📦 CONTENEDOR PRINCIPAL ======= */
+/* ========================================
+   📦 CONTENEDOR PRINCIPAL
+   ======================================== */
 .crud-container {
     width: 90%;
     max-width: 650px;
     background: #fff;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
-    border-left: 6px solid var(--color-primario);
     transition: transform 0.4s ease;
-    animation: fadeIn 1.2s ease;
+    position: relative;
+    border-left: 6px solid var(--color-primario);
 }
 
-/* Hover dinámico */
 .crud-container:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
-/* ======= 🖍️ TÍTULOS ======= */
+/* ========================================
+   🖍️ TÍTULOS
+   ======================================== */
 .crud-container h2 {
     font-size: 2rem;
     color: var(--color-primario);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 3px rgba(255, 127, 80, 0.4);
+    text-shadow: 2px 2px 4px rgba(255, 127, 80, 0.5);
 }
 
-/* ======= 📝 FORMULARIO ======= */
+/* ========================================
+   📝 FORMULARIOS
+   ======================================== */
 .crud-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: center;
-    width: 100%;
+    margin-top: 20px;
 }
 
-/* Estilo de Inputs & Textareas */
 .crud-form input,
-.crud-form textarea,
-.crud-form select {
-    width: 100%;
+.crud-form select,
+.crud-form textarea {
     padding: 14px;
-    border: 2px solid var(--color-borde);
+    border: 2px solid #ccc;
     border-radius: 10px;
     font-size: 1.1rem;
-    background-color: #fff;
-    color: #333;
+    color: var(--color-texto);
+    background-color: #fdfdfd;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    box-sizing: border-box;
+}
+
+.crud-form input:focus,
+.crud-form textarea:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 10px rgba(255, 127, 80, 0.6);
     outline: none;
 }
 
-/* Efecto al enfocar */
-.crud-form input:focus,
-.crud-form textarea:focus,
-.crud-form select:focus {
-    border-color: var(--color-primario);
-    box-shadow: 0 0 10px rgba(255, 127, 80, 0.5);
-}
-
-/* ======= 🔘 BOTÓN PRINCIPAL ======= */
-.crud-form button {
-    background: linear-gradient(135deg, var(--color-primario), var(--color-hover));
+/* ========================================
+   🔘 BOTONES DE FORMULARIO
+   ======================================== */
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-primario), #e65b28);
     color: #fff;
-    padding: 14px 28px;
     border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-/* Efecto de brillo en el botón */
-.crud-form button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), transparent);
-    transform: skewX(-20deg);
-    transition: left 0.7s ease;
-}
-
-.crud-form button:hover::before {
-    left: 100%;
-}
-
-.crud-form button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(255, 127, 80, 0.5);
-}
-
-/* ======= ⚠️ MENSAJES DE CONFIRMACIÓN Y ERROR ======= */
-.message {
-    padding: 15px;
-    margin: 25px auto;
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
+    padding: 15px 20px;
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease;
 }
 
-.message:hover {
-    transform: scale(1.05);
+.btn-primary:hover {
+    background: linear-gradient(135deg, #e65b28, var(--color-primario));
+    transform: translateY(-4px);
 }
 
-/* Mensajes de éxito */
-.success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 2px solid #c3e6cb;
-}
-
-/* Mensajes de error */
-.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 2px solid #f5c6cb;
-}
-
-/* ======= 📊 TABLA CRUD ======= */
+/* ========================================
+   📑 TABLAS DE LECTURA
+   ======================================== */
 .crud-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 30px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
     overflow: hidden;
-}
-
-.crud-table th, .crud-table td {
-    padding: 12px 15px;
-    border: 1px solid var(--color-borde);
+    background-color: #fff;
     text-align: center;
 }
 
-.crud-table th {
-    background: var(--color-primario);
+.crud-table thead {
+    background-color: var(--color-primario);
     color: #fff;
     text-transform: uppercase;
+}
+
+.crud-table th, .crud-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.crud-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
 }
 
 .crud-table tbody tr:hover {
@@ -171,41 +132,89 @@
     cursor: pointer;
 }
 
-/* ======= ⚙️ UTILIDADES ======= */
-.text-center {
+/* ========================================
+   ⚙️ BOTONES DE ACCIÓN
+   ======================================== */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+    background-color: #e0a800;
+    transform: translateY(-3px);
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   ✅ MENSAJES DE ALERTA
+   ======================================== */
+.crud-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.1rem;
     text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
 }
 
-.text-right {
-    text-align: right;
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cb;
 }
 
-.text-primary {
-    color: var(--color-primario);
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
 }
 
-.text-error {
-    color: var(--color-error);
+.crud-message:hover {
+    transform: scale(1.05);
 }
 
-.text-success {
-    color: var(--color-exito);
-}
-
-/* ======= 🧱 RESPONSIVIDAD ======= */
+/* ========================================
+   🚨 RESPONSIVE
+   ======================================== */
 @media (max-width: 768px) {
     .crud-container {
         width: 100%;
-        padding: 20px;
     }
 
-    .crud-table {
-        font-size: 0.9rem;
+    .crud-form input,
+    .crud-form textarea {
+        font-size: 1rem;
     }
-}
 
-/* ======= 🌟 ANIMACIONES ======= */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-30px); }
-    100% { opacity: 1; transform: translateY(0); }
+    .btn-primary {
+        width: 100%;
+    }
 }
