@@ -248,7 +248,15 @@ textarea:focus {
     border-bottom: 3px solid var(--color-secundario);
     padding-bottom: 12px;
 }
-
+/* ======= 💬 AJUSTES PARA "CONTACTO" ======= */
+.seccion-subtitle {
+    color: var(--color-primario);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 12px;
+}
 
 /* ======= 🌟 ANIMACIONES ======= */
 @keyframes fadeIn {
