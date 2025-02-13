@@ -53,26 +53,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="admin/css/login.css?v=<?php echo time(); ?>"> <!-- Estilos del login -->
+    <title>Admin - Iniciar Sesión</title>
+    <link rel="stylesheet" href="admin/css/login.css?v=<?php echo time(); ?>">
+    <link rel="icon" href="admin/img/logo.png" type="image/png">
 </head>
 
 <body>
 
     <div class="login-container">
-        <h2>Iniciar Sesión</h2>
+        <div class="login-card">
 
-        <!-- Formulario de login -->
-        <form method="POST" action="login.php">
-            <input type="text" id="username" name="username" placeholder="Usuario" required>
-            <input type="password" id="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">Iniciar sesión</button>
-        </form>
+            <!-- LOGO ENCIMA DEL FORMULARIO -->
+            <div class="logo-container">
+                <img src="admin/img/logo.png" alt="TaronjaBox Admin" class="logo">
+            </div>
 
-        <!-- Mensaje de error -->
-        <?php if (isset($error)) : ?>
-            <p class="error-message"><?= htmlspecialchars($error) ?></p>
-        <?php endif; ?>
+            <h2 class="login-title">🔒 Admin Panel</h2>
+
+            <!-- Formulario de login -->
+            <form method="POST" action="login.php">
+                <input type="text" id="username" name="username" placeholder="Usuario" required>
+                <input type="password" id="password" name="password" placeholder="Contraseña" required>
+
+                <button type="submit" class="btn-login">Iniciar sesión</button>
+            </form>
+
+            <!-- Mensaje de error -->
+            <?php if (!empty($error)) : ?>
+                <p class="error-message"><?= htmlspecialchars($error) ?></p>
+            <?php endif; ?>
+        </div>
     </div>
 
 </body>
