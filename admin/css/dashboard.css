@@ -1,53 +1,66 @@
-/* ======= DASHBOARD ESTILOS ======= */
+/* ======= ⚙️ DASHBOARD CSS - DarkOrange Admin Panel ======= */
 
-/* ======= GENERAL ======= */
-body.dashboard-page {
+/* ======= 🌐 ESTRUCTURA GENERAL ======= */
+.dashboard-page {
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #3a3a3a, #1f1f1f);
-    color: #ffff;
-    font-family: 'Poppins', sans-serif;
+    min-height: calc(100vh - 60px); /* Restamos el footer */
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    background-color: var(--color-fondo);
+    margin-left: 220px; /* Dejar espacio para el sidebar */
     text-align: center;
 }
 
-/* ======= CONTENEDOR PRINCIPAL ======= */
+/* ======= 🖼️ CONTENEDOR ======= */
 .dashboard-container {
-    background: rgba(255, 255, 255, 0.1);
+    background: #fff;
+    padding: 50px 40px;
     border-radius: 20px;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    padding: 50px 30px;
-    border: 2px solid rgba(255, 127, 80, 0.6);
-    max-width: 600px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    max-width: 700px;
+    border-left: 6px solid var(--color-primario);
     animation: fadeIn 1s ease;
 }
 
+/* ======= 📝 TEXTOS ======= */
 .dashboard-title {
     font-size: 3rem;
+    color: var(--color-primario);
     margin-bottom: 20px;
-    color: #ff7f50;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 6px rgba(255, 127, 80, 0.4);
+    letter-spacing: 1px;
 }
 
 .dashboard-subtitle {
-    font-size: 1.4rem;
-    color: #e0e0e0;
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 10px;
 }
 
-/* ======= ANIMACIÓN ======= */
+/* ======= 🌟 ANIMACIÓN ======= */
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-30px); }
-    100% { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* ======= RESPONSIVIDAD ======= */
-@media (max-width: 600px) {
+/* ======= 📱 RESPONSIVIDAD ======= */
+@media (max-width: 768px) {
+    .dashboard-page {
+        margin-left: 0;
+        padding-top: 100px;
+    }
+
     .dashboard-title {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
 
     .dashboard-subtitle {
