@@ -3,7 +3,7 @@
 /**
  * Pie de página dinámico para el panel de administración.
  * 
- * Muestra un footer simple y moderno adaptado al diseño del panel de administración.
+ * Muestra un footer limpio, simple y profesional.
  */
 
 $base_url = "http://" . $_SERVER['HTTP_HOST'];
