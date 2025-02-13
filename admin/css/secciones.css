@@ -195,6 +195,33 @@ body.seccion-page {
     box-shadow: 0 4px 10px rgba(220, 53, 69, 0.5);
 }
 
+/* ======= 🔍 SECCIONES ESPECÍFICAS ======= */
+
+/* 👥 Quienes Somos */
+#quienes_somos .seccion-container {
+    border-left: 6px solid var(--color-info);
+}
+
+/* 🛠️ Nuestro Equipo */
+#nuestro_equipo .seccion-container {
+    border-left: 6px solid var(--color-secundario);
+}
+
+/* 🩺 Fisioterapia */
+#fisioterapia .seccion-container {
+    border-left: 6px solid var(--color-exito);
+}
+
+/* 💳 Planes de Suscripción */
+#planes_suscripcion .seccion-container {
+    border-left: 6px solid var(--color-advertencia);
+}
+
+/* 📨 Contacto */
+#contacto .seccion-container {
+    border-left: 6px solid var(--color-error);
+}
+
 /* ======= ❌ MENSAJE DE NO REGISTROS ======= */
 .no-registros {
     font-size: 1.2rem;
