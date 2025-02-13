@@ -6,7 +6,7 @@ body.dashboard-page {
     padding: 0;
     min-height: 100vh;
     background: linear-gradient(135deg, #3a3a3a, #1f1f1f);
-    color: #fff;
+    color: #ffff;
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
