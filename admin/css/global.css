@@ -1,247 +1,173 @@
-/* ======= ⚙️ GLOBAL CSS - DarkOrange Admin Panel ======= */
+/* =======================================
+   RESET GENERAL
+   ======================================= */
 
-/* ======= 🌐 VARIABLES DE COLOR ======= */
-:root {
-    --color-primario: #ff7f50;   /* darkorange */
-    --color-secundario: #34495e; /* azul oscuro */
-    --color-fondo: #f3f3f3;      /* fondo general */
-    --color-texto: #333;         /* texto principal */
-    --color-hover: #e65b28;      /* hover darkorange oscuro */
-    --color-boton: #ff7f50;      /* botón principal */
-    --color-exito: #28a745;      /* verde éxito */
-    --color-error: #dc3545;      /* rojo error */
-    --color-info: #17a2b8;       /* azul info */
-    --color-advertencia: #ffc107;/* amarillo advertencia */
-    --color-borde: #ddd;         /* bordes suaves */
-    --font-family: 'Poppins', sans-serif;
-}
-
-/* ======= 🔄 RESET GENERAL ======= */
-* {
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font-family);
 }
 
-html {
-    font-size: 16px;
-    height: 100%;
-    scroll-behavior: smooth;
+/* =======================================
+   PALETA DE COLORES (Variables CSS)
+   ======================================= */
+
+:root {
+    --color-primario: #2c3e50;   /* Azul oscuro */
+    --color-secundario: #34495e; /* Azul más claro */
+    --color-fondo: #f4f4f4;      /* Gris claro */
+    --color-texto: #333;         /* Negro suave */
+    --color-exito: #28a745;      /* Verde éxito */
+    --color-error: #dc3545;      /* Rojo error */
+    --color-hover: #1d2d3c;      /* Hover más oscuro */
+    --color-boton: #007bff;      /* Azul botones */
 }
+
+/* =======================================
+   ESTILOS GENERALES DEL BODY
+   ======================================= */
 
 body {
-    height: 100%;
+    font-family: Arial, sans-serif;
     background-color: var(--color-fondo);
     color: var(--color-texto);
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
 }
 
-/* ======= 🖼️ ESTRUCTURA GENERAL ======= */
+/* =======================================
+   CONTENEDOR PRINCIPAL
+   ======================================= */
+
 .main-content {
-    margin-left: 220px; /* Deja espacio para el sidebar */
-    min-height: calc(100vh - 60px);
-    padding: 30px;
+    margin-right: 260px; /* Para evitar que se solape con el sidebar */
+    padding: 20px;
+    max-width: calc(100% - 260px);
     box-sizing: border-box;
 }
 
-/* ======= 📍 TITULOS Y TEXTOS ======= */
-h1, h2, h3, h4, h5, h6 {
+/* =======================================
+   CONTENEDOR DEL DASHBOARD
+   ======================================= */
+
+.dashboard-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* =======================================
+   ESTILOS DEL TÍTULO DEL DASHBOARD
+   ======================================= */
+
+.dashboard-title {
+    font-size: 28px;
     color: var(--color-primario);
-    margin-bottom: 20px;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-p {
-    color: var(--color-texto);
     margin-bottom: 15px;
+    text-align: center;
 }
 
-/* ======= 🔘 BOTONES ======= */
+/* =======================================
+   ESTILO DEL TEXTO INFORMATIVO
+   ======================================= */
+
+.main-content p {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+}
+
+/* =======================================
+   BOTONES GENERALES
+   ======================================= */
+
 .btn {
     display: inline-block;
-    padding: 12px 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
     border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    background: linear-gradient(135deg, var(--color-boton), var(--color-hover));
+    border-radius: 5px;
     cursor: pointer;
-    text-transform: uppercase;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
 }
 
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.4), transparent);
-    transform: skewX(-20deg);
-    transition: left 0.5s ease;
+/* Botón primario */
+.btn-primary {
+    background-color: var(--color-boton);
+    color: white;
 }
 
-.btn:hover::before {
-    left: 125%;
+.btn-primary:hover {
+    background-color: #0056b3;
 }
 
-.btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(255, 127, 80, 0.6);
-}
-
-/* Botones secundarios */
-.btn-secondary {
-    background: linear-gradient(135deg, #6c757d, #5a6268);
-}
-
+/* Botón de éxito */
 .btn-success {
-    background: linear-gradient(135deg, var(--color-exito), #1e7e34);
-}
-
-.btn-danger {
-    background: linear-gradient(135deg, var(--color-error), #a71d2a);
-}
-
-.btn-info {
-    background: linear-gradient(135deg, var(--color-info), #117a8b);
-}
-
-/* ======= 📊 TABLAS ======= */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.table th, .table td {
-    padding: 12px 15px;
-    border: 1px solid var(--color-borde);
-    text-align: center;
-}
-
-.table th {
-    background: var(--color-primario);
-    color: #fff;
-    text-transform: uppercase;
-}
-
-.table tbody tr:hover {
-    background-color: rgba(255, 127, 80, 0.2);
-    cursor: pointer;
-}
-
-/* ======= 🛠️ FORMULARIOS ======= */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-textarea,
-select {
-    width: 100%;
-    padding: 12px 15px;
-    margin: 10px 0;
-    border: 2px solid var(--color-borde);
-    border-radius: 10px;
-    font-size: 1rem;
-    color: var(--color-texto);
-    background: #fff;
-    transition: box-shadow 0.3s ease;
-    outline: none;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    border-color: var(--color-primario);
-    box-shadow: 0 0 10px rgba(255, 127, 80, 0.5);
-}
-
-label {
-    color: var(--color-texto);
-    font-weight: 500;
-    margin-top: 10px;
-    display: block;
-}
-
-/* ======= ⚠️ MENSAJES DE ALERTA ======= */
-.message {
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 1rem;
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.message.success {
     background-color: var(--color-exito);
+    color: white;
 }
 
-.message.error {
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Botón de peligro */
+.btn-danger {
     background-color: var(--color-error);
+    color: white;
 }
 
-.message.info {
-    background-color: var(--color-info);
+.btn-danger:hover {
+    background-color: #c82333;
 }
 
-.message.warning {
-    background-color: var(--color-advertencia);
-    color: #333;
-}
+/* =======================================
+   MENSAJES DE ÉXITO Y ERROR
+   ======================================= */
 
-/* ======= 🌍 UTILIDADES ======= */
-.text-center {
+.message {
+    padding: 12px;
+    margin: 20px auto;
+    width: 80%;
     text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
-.text-right {
-    text-align: right;
+/* Mensajes de éxito */
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
 }
 
-.text-primary {
-    color: var(--color-primario);
+/* Mensajes de error */
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
-.text-muted {
-    color: var(--color-texto);
-}
+/* =======================================
+   RESPONSIVE (MÓVILES)
+   ======================================= */
 
-/* ======= 📱 RESPONSIVIDAD ======= */
 @media (max-width: 768px) {
     .main-content {
-        margin-left: 0;
+        margin-right: 0;
         padding: 20px;
+    }
+
+    .dashboard-container {
+        width: 95%;
     }
 
     html {
         font-size: 14px;
-    }
-}
-
-/* ======= 🌟 ANIMACIONES ======= */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
