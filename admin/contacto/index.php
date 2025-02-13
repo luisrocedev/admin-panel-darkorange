@@ -30,7 +30,8 @@ extract($config);  // Convertir el array en variables ($conexion, $tabla, $secci
 
     <!-- Estilos globales -->
     <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/secciones.css">
+    <link rel="stylesheet" href="/admin/css/global.css?v=<?php echo time(); ?>">
+
 </head>
 
 <body class="seccion-page">
