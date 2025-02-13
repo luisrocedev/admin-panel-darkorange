@@ -28,34 +28,35 @@ extract($config); // Convierte el array en variables ($conexion, $tabla, $seccio
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiénes Somos</title>
+    <title>Quiénes Somos - Administración</title>
 
     <!-- Estilos -->
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/secciones.css"> <!-- Ahora usa secciones.css -->
+    <link rel="stylesheet" href="../css/global.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/secciones.css?v=<?php echo time(); ?>">
 </head>
 
 <body class="seccion-page">
     <?php include "../includes/header.php"; ?> <!-- Incluir el sidebar -->
 
+    <!-- ======= 🌟 CONTENIDO PRINCIPAL ======= -->
     <main>
         <div class="seccion-container">
-            <h2>Quiénes Somos</h2>
+            <h2>⚙️ Gestión de "Quiénes Somos"</h2>
 
-            <!-- Mensaje de confirmación o error -->
+            <!-- 📢 Mensaje de confirmación o error -->
             <?php if (!empty($message)) : ?>
-                <p class="message <?= strpos($message, 'Error') !== false ? 'error' : 'success' ?>">
+                <div class="message <?= strpos($message, 'Error') !== false ? 'error' : 'success' ?>">
                     <?= htmlspecialchars($message) ?>
-                </p>
+                </div>
             <?php endif; ?>
 
-            <!-- Botón para crear un nuevo registro -->
+            <!-- ➕ Botón para crear un nuevo registro -->
             <a href="../crud/create.php?tabla=<?= htmlspecialchars($tabla) ?>&seccion=<?= htmlspecialchars($seccion) ?>" class="seccion-btn">
-                Crear Nuevo Registro
+                ➕ Crear Nuevo Registro
             </a>
 
-            <!-- Lista de registros -->
-            <h3>Lista de Registros</h3>
+            <!-- 📋 Lista de registros -->
+            <h3 class="seccion-subtitle">🗂️ Lista de Registros</h3>
             <?php
             include "../util/tabla_dinamica.php";  // Incluir la lógica de la tabla dinámica
             mostrarTablaDinamica($conexion, $tabla, $seccion);  // Mostrar la tabla de registros
