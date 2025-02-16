@@ -1,0 +1,156 @@
+🚀 DarkOrange - Página de Administración Web.
+
+❓ ¿Qué es DarkOrange?
+
+
+DarkOrange es el panel de administración diseñado para gestionar el contenido de TaronjaBoxValencia de manera dinámica y eficiente.
+
+Permite a los administradores modificar información sin necesidad de editar código, facilitando la gestión de secciones como el blog, equipo, fisioterapia, precios y más.
+
+
+
+🤔 Además, DarkOrange está diseñado para ser escalable, lo que significa que podría adaptarse a cualquier otro proyecto web con ligeras modificaciones 🫣 
+
+
+
+🌍 Tecnologías utilizadas:
+
+
+
+✅ Backend: PHP puro.
+
+✅ Frontend: HTML, CSS, JavaScript.
+
+✅ Base de Datos: MySQL.
+
+✅ Metodología: CRUD global para todas las secciones.
+
+✅ Entorno: VPS en IONOS.
+
+
+
+En este caso vamos a comentar técnicamente lo visual (CSS) para que podáis aplicarlo a vuestros proyectos.
+
+
+
+En el video de demostración podéis observar el login y su funcionamiento visual. 
+
+
+
+Como podemos observar, al acceder al login, este mismo aparece con un fadeIn hacia abajo y de forma progresiva (opacidad). Esto es posible al uso de animaciones (keyframes):
+
+
+
+@keyframes fadeIn {
+
+    0% { opacity: 0; transform: translateY(-60px); }
+
+    100% { opacity: 1; transform: translateY(0); }
+
+}
+
+
+
+Además, en el video de demostración, introduzco incorrectamente la contraseña de login para provocar un mensaje de error. Este error aplica un efecto de "zumbido"; esto se logra por el uso de keyframe y usando transform:
+
+@keyframes shake {
+
+    0%, 100% { transform: translateX(0); }
+
+    20% { transform: translateX(-5px); }
+
+    40% { transform: translateX(5px); }
+
+    60% { transform: translateX(-5px); }
+
+    80% { transform: translateX(5px); }
+
+}
+
+
+
+🔥 ¡En próximas publicaciones, mostraremos más aspectos visuales de la página web explicando un poco del código! 
+
+
+
+🔎 Sin embargo, si queréis profundizar más, podéis acceder a nuestro GitHub https://github.com/luisrocedev/darkorange y poder leer nuestro README.md o incluso profundizar en los códigos del repositorio que están comentados para que podáis hacerlo vosotros mismos. 
+
+-----
+
+🚀 DarkOrange - Página de Administración Web.
+
+🔥 Seguimos con las publicaciones deDarkOrange 🔥
+ 
+Como ya sabéis, Darkorange es un panel de administración para gestionar la web de Taronja Box Valencia. (Tenéis más detalles en la publicación anterior.)
+
+En esta publicación, hablaremos sobre el panel de control y de cómo está formado visualmente. 
+
+En este caso, como podemos observar en el video de demostración, vemos que al entrar, disponemos de una bienvenida; en este caso, nos da la bienvenida al administrador con un ligero FadeIn. Además, al ir a la barra lateral, disponemos de las secciones donde, al pasar el cursor en las secciones, estas se activan y cambian de color aplicando un efecto de "activación".
+
+Explicación técnica:
+El efecto fade in lo conseguimos al usar keyframes. 
+
+@keyframes fadeIn {
+ from {
+ opacity: 0;
+ transform: translateY(-20px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+}
+
+Cabe destacar que el proyecto ha sido dividido en módulos para que cada sección que queramos editar (dashboard.css) nos sea lo más fácil posible y escalable.
+
+Hablemos ahora del efecto de "activación" de los botones en la barra lateral:
+Hemos usado header.css en .menu ul li a este código: 
+
+transition: background 0.4s ease, padding-left 0.3s ease; y en global.css ayudándonos con las etiquetas .btn:hover
+
+🔥 ¡En próximas publicaciones, mostraremos más aspectos visuales de la página web explicando un poco del código! 
+
+🔎 Sin embargo, si queréis profundizar más, podéis acceder a nuestro GitHub https://lnkd.in/da_4gE63 y poder leer nuestro README o incluso profundizar en los códigos del repositorio que están comentados para que podáis hacerlo vosotros mismos.
+
+-----
+
+🔧 Código de cómo recibe las secciones (tablas_dinamicas.php):
+
+function mostrarTablaDinamica($conexion, $tabla, $seccion)
+{
+    $peticion = $conexion->query("SELECT * FROM $tabla");  // Obtener todos los registros de la tabla
+
+    if (!$peticion) {
+        die("<p class='error-message'>Error al obtener los registros: " . $conexion->error . "</p>");  // Mostrar error si la consulta falla
+    }
+    $registros = [];  // Inicializar el array de registros
+    while ($fila = $peticion->fetch_assoc()) {
+        $registros[] = $fila;  // Guardar cada registro en el array
+    }
+    $columnas = !empty($registros) ? array_keys($registros[0]) : [];  // Obtener las columnas si hay registros
+------
+⚙️ Y cómo recibe la estructura (funciones.php)
+function obtenerEstructuraTabla($conexion, $tabla)
+{
+    $peticion = $conexion->prepare("DESCRIBE $tabla");  // Preparar la consulta para obtener la estructura de la tabla
+
+    if (!$peticion) {
+        die("Error en la preparación de la consulta: " . $conexion->error);  // Mostrar error si la consulta falla
+    }
+
+    $peticion->execute();  // Ejecutar la consulta
+    $resultado = $peticion->get_result();  // Obtener el resultado de la consulta
+
+    $estructura = [];  // Inicializar el array donde se almacenará la estructura de la tabla
+    while ($fila = $resultado->fetch_assoc()) {
+        $estructura[] = $fila;  // Almacenar cada fila en el array de estructura
+    }
+
+    $peticion->close();  // Cerrar la consulta
+    return $estructura;  // Retornar la estructura obtenida
+}
+Gracias a includes, GET y SET, podemos incluir en el CRUD estas implementaciones.
+
+
+
+
