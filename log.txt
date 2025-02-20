@@ -1,207 +1,210 @@
 
+LOG DE SERVIDOR – luisrocedev.com
+Fecha: Lunes 27 de enero
 
------------ HISTORIAL SERVIDOR luisrocedev.com --------------
+================================================================
+17:00 – CONFIGURACIÓN DE DNS EN IONOS
+================================================================
+1. Ingreso al panel de control de IONOS.
+2. Se crea o configura el subdominio darkorange.luisrocedev.es apuntando a la IP pública del servidor.
+   - Se añade un registro A:
+     darkorange.luisrocedev.es    A    <IP_DEL_SERVIDOR>
+3. Se espera la propagación de DNS (puede tardar unos minutos u horas).
 
-///////////////////// ACTUALIZAR /////////////////////
+================================================================
+17:15 – CONEXIÓN AL SERVIDOR POR SSH
+================================================================
+ssh <usuario>@<IP_DEL_SERVIDOR>
+(Establecemos la sesión SSH para realizar la administración en modo consola).
 
+================================================================
+18:31 – ACTUALIZACIÓN DEL SERVIDOR
+================================================================
+sudo apt update && sudo apt upgrade -y
+(Se actualiza la lista de paquetes e instala las últimas versiones disponibles).
 
-- 18:31 sudo apt update && sudo apt upgrade -y
+================================================================
+18:32 – INSTALACIÓN DE APACHE
+================================================================
+sudo apt install apache2 -y
+(Instala el servidor web Apache).
 
+================================================================
+18:33 – INSTALACIÓN DE MYSQL Y CONFIGURACIÓN DE SEGURIDAD
+================================================================
+sudo apt install mysql-server -y
+sudo mysql_secure_installation
+(Instala MySQL y se ejecuta el script de seguridad para protegerlo).
 
-///////////////////// INSTALAR SERVICIOS V.1 /////////////////////
- 
+================================================================
+18:34 – INSTALACIÓN DE PHP Y GIT
+================================================================
+sudo apt install php libapache2-mod-php php-mysql -y
+sudo apt install git -y
+(Instala PHP, módulo para Apache, librería MySQL para PHP y Git para control de versiones).
 
-- 18:32 sudo apt install apache2 -y
+================================================================
+18:35 – CREACIÓN DEL USUARIO «darkorange»
+================================================================
+sudo adduser darkorange
+sudo usermod -aG www-data darkorange
+(Se crea el usuario y se agrega al grupo www-data para administrar archivos en /var/www/).
 
-- 18:33 sudo apt install mysql-server -y
-  sudo mysql_secure_installation
+================================================================
+18:40 – VERIFICACIÓN Y ASIGNACIÓN DE PERMISOS DE SUDO
+================================================================
+sudo usermod -aG darkorange darkorange
+su - darkorange
+sudo ls
+(Se asegura que el usuario pertenezca a su grupo y pueda usar sudo. Probamos con sudo ls).
 
-- 18:34 sudo apt install php libapache2-mod-php php-mysql -y
+================================================================
+18:43 – CREACIÓN DE CARPETA DEL PROYECTO Y VIRTUALHOST
+================================================================
+sudo mkdir -p /var/www/darkorange
+sudo nano /etc/apache2/sites-available/darkorange.luisrocedev.es.conf
 
-- 18:34 sudo apt install git -y
-
-
-///////////////////// CREAR USUARIOS /////////////////////
-
-
-- 18:35 sudo adduser darkorange (crear usuario)
-  sudo usermod -aG www-data darkorange (dar al usuario permisos de administración)
-
-- 18:40 (entrar en root y dar a darkorange) sudo usermod -aG darkorange (por si no se aplican los permisos anteriores)
-  su - darkorange (cambiar a darkorange)
-  sudo ls (intentar ejecutar un comando con sudo)
-
-
-///////////////////// CONFIGURAR VIRTUALHOSTS PARA EL SUBDOMINIO /////////////////////
-
-
-- 18:43 sudo mkdir -p /var/www/darkorange (crear carpeta del proyecto)
-  sudo nano /etc/apache2/sites-available/darkorange.luisrocedev.es.conf (Crear el archivo de configuración del VirtualHost:)
- 
-Agregar esta configuración 
+-- Contenido del archivo darkorange.luisrocedev.es.conf --
 
 <VirtualHost *:80>
-    # Subdominio
     ServerName darkorange.luisrocedev.es
-
-    # Carpeta raíz del proyecto
     DocumentRoot /var/www/darkorange
 
-    # Configuración del directorio
     <Directory /var/www/darkorange>
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
     </Directory>
 
-    # Logs de acceso y errores
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
+(Se crea la carpeta para el proyecto y el archivo de configuración de Apache para servir el subdominio).
+Opcional: habilitar mod_rewrite
+sudo a2enmod rewrite
+sudo systemctl reload apache2
 
-///////////////////// HABILITAR NUESTRA WEB /////////////////////
+================================================================
+18:45 – HABILITAR EL SITIO Y RECARGAR APACHE
+================================================================
+sudo a2ensite darkorange.luisrocedev.es.conf
+sudo systemctl reload apache2
+(Se habilita el VirtualHost y se recarga Apache).
 
-- 18:45 sudo a2ensite darkorange.luisrocedev.es.conf (habilitar sitio)
-  sudo systemctl reload apache2 (reiniciar apache)
+================================================================
+18:47 – CLONAR REPOSITORIO DESDE GITHUB
+================================================================
+cd /var/www/darkorange
+sudo git clone https://github.com/luisrocedev/darkorange.git .
+sudo git pull
+(Se clona el repositorio en la carpeta /var/www/darkorange y se hace pull para actualizar).
 
-///////////////////// CONECTAR CON GITHUB (CLONAR Y PULL) ///////////////////// 
+================================================================
+18:55 – AJUSTE DE PROPIETARIOS Y PERMISOS
+================================================================
+sudo chown -R www-data:www-data /var/www/darkorange
+sudo chmod -R 755 /var/www/darkorange
+(Se asigna www-data:www-data como propietario y grupo de la carpeta, y se ajustan los permisos a 755).
 
-- 18:47 cd /var/www/darkorange (ir a la carpeta del proyecto)
-- 18:48 sudo git clone https://github.com/luisrocedev/darkorange.git . (Clono mi repositorio)
-  sudo git pull (pull para actualizar)
+================================================================
+18:56 – VERIFICAR CONFIGURACIÓN DE APACHE
+================================================================
+sudo apache2ctl -S
+(Se comprueba la lista de VirtualHosts cargados).
 
-///////////////////// MANEJAR PERMISOS Y PROPIETARIOS ///////////////////// 
+================================================================
+18:57 – DESHABILITAR SITIO POR DEFECTO
+================================================================
+sudo a2dissite 000-default.conf
+sudo systemctl reload apache2
+(Se deshabilita el VirtualHost por defecto y se recarga Apache).
 
-- 18:55 sudo chown -R www-data:www-data /var/www/darkorange (cambiar propietario de la carpeta)
-  sudo chmod -R 755 /var/www/darkorange (ajustar permisos)
-
-///////////////////// VERIFICAR QUE EL VIRTUALHOSTS ESTE HABILITADO /////////////////////
-
-- 18:56 sudo apache2ctl -S 
-
-///////////////////// (POSIBLES INTERFERENCIAS) ///////////////////// 
-- 18:57 sudo a2dissite 000-default.conf (deshabilito el sitio predeterminado)
-  sudo systemctl reload apache2 (recargo apache)
-
-///////////////////// VERIFICAR LOS LOGS DE APACHE ///////////////////// 
-- (Para salir de los logs control + c)
-
-///////////////////// INSTALAR SERVICIOS V.2 /////////////////////
-
-- 19:05 sudo apt install phpmyadmin 
-
-Lunes 27 enero
-
-Creamos base de datos
-
-mysql> CREATE DATABASE taronjaboxvalencia;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> CREATE USER 'taronjaboxvalencia'@'localhost' IDENTIFIED BY 'taronjaboxvalencia';
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> GRANT ALL PRIVILEGES ON taronjaboxvalencia.* TO 'taronjaboxvalencia'@'localhost';
-Query OK, 0 rows affected (0.00 sec)
-
-mysql> FLUSH PRIVILEGES;
-Query OK, 0 rows affected (0.00 sec)
-
-mysql> 
-mysql> SHOW DATABASES;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| mysql              |
-| performance_schema |
-| phpmyadmin         |
-| sys                |
-| taronjaboxvalencia |
-+--------------------+
-6 rows in set (0.00 sec)
-
-mysql> 
-mysql> SHOW GRANTS FOR 'taronjaboxvalencia'@'localhost';
-+------------------------------------------------------------------------------------+
-| Grants for taronjaboxvalencia@localhost                                            |
-+------------------------------------------------------------------------------------+
-| GRANT USAGE ON *.* TO `taronjaboxvalencia`@`localhost`                             |
-| GRANT ALL PRIVILEGES ON `taronjaboxvalencia`.* TO `taronjaboxvalencia`@`localhost` |
-+------------------------------------------------------------------------------------+
-2 rows in set (0.00 sec)
-
-mysql> 
-
-
-EN CASO DE PHOPMYADMIN NO SE INSTALE CORRECTAMENTE 
-2. Verificar la Configuración de Apache
-Durante la instalación de phpMyAdmin, se debería haber creado un archivo de configuración en Apache. Verifica si existe:
-
-bash
-Copiar
-Editar
+================================================================
+19:05 – INSTALACIÓN DE PHPMYADMIN
+================================================================
+sudo apt install phpmyadmin -y
+(Se instala phpMyAdmin para administrar MySQL. Si es necesario, seleccionar Apache2 durante la instalación).
+En caso de no crearse el archivo de configuración:
 ls /etc/apache2/conf-available/phpmyadmin.conf
-Si el archivo phpmyadmin.conf existe, habilítalo en Apache:
-
-bash
-Copiar
-Editar
-sudo a2enconf phpmyadmin
-sudo systemctl reload apache2
-Si no existe, puedes crearlo manualmente con el siguiente contenido:
-
-bash
-Copiar
-Editar
-sudo nano /etc/apache2/conf-available/phpmyadmin.conf
-Contenido del archivo:
-
-apache
-Copiar
-Editar
-Alias /phpmyadmin /usr/share/phpmyadmin
-
-<Directory /usr/share/phpmyadmin>
-    Options FollowSymLinks
-    DirectoryIndex index.php
-
-    <IfModule mod_php.c>
-        AddType application/x-httpd-php .php
-    </IfModule>
-
-    <FilesMatch ".+\.php$">
-        SetHandler application/x-httpd-php
-    </FilesMatch>
-
-    Require all granted
-</Directory>
-
-<Directory /usr/share/phpmyadmin/setup>
-    <IfModule mod_authz_core.c>
-        <RequireAny>
-            Require ip 127.0.0.1
-            Require ip ::1
-        </RequireAny>
-    </IfModule>
-</Directory>
-Guarda y cierra el archivo (Ctrl + O, luego Ctrl + X).
-
-Habilita la configuración y recarga Apache:
-
-bash
-Copiar
-Editar
 sudo a2enconf phpmyadmin
 sudo systemctl reload apache2
 
+================================================================
+19:10 – CREACIÓN DE LA BASE DE DATOS Y USUARIO EN MYSQL
+================================================================
+sudo mysql
 
-----
-1 febrero 2025
+Dentro de la consola MySQL:
 
-Sudo git pull proyecto final
+CREATE DATABASE taronjaboxvalencia;
+CREATE USER 'taronjaboxvalencia'@'localhost' IDENTIFIED BY 'taronjaboxvalencia';
+GRANT ALL PRIVILEGES ON taronjaboxvalencia.* TO 'taronjaboxvalencia'@'localhost';
+FLUSH PRIVILEGES;
 
-Nano hader.css
+SHOW DATABASES;
+SHOW GRANTS FOR 'taronjaboxvalencia'@'localhost';
+
+(Se crea la base de datos, el usuario y se asignan privilegios).
+
+================================================================
+19:15 – CREACIÓN DE SCRIPT DE BACKUP
+================================================================
+mkdir -p /home/darkorange/backups
+nano /home/darkorange/backups/backup.sh
+
+-- Contenido de backup.sh --
+
+#!/bin/bash
+# Script de backup para la base de datos taronjaboxvalencia
+
+fecha=$(date +%F)
+mysqldump -u root -p'tu_password_root' taronjaboxvalencia > /home/darkorange/backups/taronjaboxvalencia_$fecha.sql
+
+# Opcional: comprimir el archivo
+# gzip /home/darkorange/backups/taronjaboxvalencia_$fecha.sql
+
+Guardamos el archivo y damos permisos de ejecución:
+chmod +x /home/darkorange/backups/backup.sh
+
+(Al ejecutar este script manualmente, se generará un volcado de la BD con la fecha).
+
+================================================================
+19:20 – CONFIGURAR CRON PARA EJECUTAR BACKUPS AUTOMÁTICAMENTE
+================================================================
+crontab -e
+
+Agregar la línea:
+0 0 * * * /home/darkorange/backups/backup.sh
+
+(Con esto, el script se ejecutará cada día a medianoche).
+
+================================================================
+19:25 – VERIFICACIÓN DE LOS SERVICIOS
+================================================================
+sudo systemctl status apache2
+sudo systemctl status mysql
+sudo systemctl enable apache2
+sudo systemctl enable mysql
+
+(Verificamos que Apache y MySQL estén activos y configurados para iniciar al encender el servidor).
+
+================================================================
+CONCLUSIONES
+================================================================
+- Se configuró el DNS en IONOS para el subdominio darkorange.luisrocedev.es (registro A).
+- Se instaló y configuró el stack LAMP: Apache, MySQL, PHP, y phpMyAdmin.
+- Se clonó el repositorio de GitHub y se configuró un VirtualHost para el subdominio.
+- Se crearon usuarios y grupos con permisos adecuados (darkorange + www-data).
+- Se ejecutó mysql_secure_installation para asegurar MySQL.
+- Se implementaron backups diarios vía CRON y script de mysqldump.
+- Se recomienda revisar periódicamente:
+  - Logs de Apache (/var/log/apache2/)
+  - Logs de MySQL (/var/log/mysql/ o /var/log/mysqld.log según la versión)
+  - Actualizaciones de paquetes (sudo apt update && sudo apt upgrade -y)
+  - Integrar certificados SSL (ej. Let's Encrypt) para servir el sitio con HTTPS
+
+FIN DEL LOG
 
 
 
